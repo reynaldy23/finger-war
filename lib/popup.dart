@@ -9,12 +9,13 @@ class WinnerAlert extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoAlertDialog(
       title: const Text('CONGRATULATIONS!', textAlign: TextAlign.center,),
-      content: Text('The match is won by player $result by $total taps'),
+      content: Text('The match is $result by $total taps.'),
       actions: [
         Center(
           child: TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('OK',)),
+              child: const Text('OK'),
+          ),
         )
       ],
     );

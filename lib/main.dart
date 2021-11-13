@@ -4,7 +4,7 @@ import 'package:finger_war/popup.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-int countdown = 10;
+int countdown = 15;
 bool isStop = true;
 int player1 = 0;
 int player2 = 0;
@@ -200,7 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
       isStop = true;
       player1 = 0;
       player2 = 0;
-      countdown = 10;
+      countdown = 15;
       one = 'Player 1';
       two = 'Player 2';
       start = 'START';
@@ -212,11 +212,12 @@ class _MyHomePageState extends State<MyHomePage> {
 void winner(){
   if (point1 == point2){
     result = 'tie';
+    total = point1;
   } else if (point1 > point2){
-    result = '1';
+    result = 'won by player 1';
     total = point1;
   } else {
-    result = '2';
+    result = 'won by player 2';
     total = point2;
   }
 }

@@ -1,16 +1,16 @@
 import 'dart:async';
 
+import 'package:finger_war/popup.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-int countdown = 10;
+int countdown = 3;
 bool isStop = true;
 int player1 = 0;
 int player2 = 0;
 String one = 'Player 1';
 String two = 'Player 2';
 String start = 'START';
-
 
 void main() {
   runApp(const MyApp());
@@ -42,8 +42,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -177,17 +175,28 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
 
-void timeOver() {
-  countdown--;
-  if (countdown == -1) {
-    isStop = true;
-    player1 = 0;
-    player2 = 0;
-    countdown = 10;
-    one = 'Player 1';
-    two = 'Player 2';
-    start = 'START';
+  void popUp(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false, //to make user quit only via button
+      builder: (BuildContext context) {
+        return const WinnerAlert();
+      },
+    );
+  }
+
+  void timeOver() {
+    countdown--;
+    if (countdown == -1) {
+      isStop = true;
+      player1 = 0;
+      player2 = 0;
+      countdown = 10;
+      one = 'Player 1';
+      two = 'Player 2';
+      start = 'START';
+      popUp(context);
+    }
   }
 }

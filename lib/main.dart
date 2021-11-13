@@ -198,6 +198,8 @@ class _MyHomePageState extends State<MyHomePage> {
     if (countdown == -1) {
       winner();
       isStop = true;
+      point1 = 0;
+      point2 = 0;
       player1 = 0;
       player2 = 0;
       countdown = 15;

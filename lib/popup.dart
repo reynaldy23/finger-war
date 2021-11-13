@@ -13,7 +13,10 @@ class WinnerAlert extends StatelessWidget {
       actions: [
         Center(
           child: TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                Navigator.pop(context);
+                total = 0;
+              },
               child: const Text('OK'),
           ),
         )

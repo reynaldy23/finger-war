@@ -3,6 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+int countdown = 10;
+bool isStop = true;
+int player1 = 0;
+int player2 = 0;
+String one = 'Player 1';
+String two = 'Player 2';
+String start = 'START';
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,10 +42,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String start = 'START';
-  String stop = 'STOP';
-  int countdown = 60;
-  bool isStop = true;
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,74 +51,143 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Transform.rotate(
-                angle: pi,
-                child: Text(
-                  countdown.toString(),
-                  style: const TextStyle(fontSize: 43),
-                )),
-            const SizedBox(
-              height: 20,
+            Expanded(
+              flex: 2,
+              child: SizedBox(
+                  height: 210,
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        player1++;
+                      });
+                    },
+                    child: Transform.rotate(angle: pi, child: Text(one)),
+                    style: TextButton.styleFrom(),
+                  )),
             ),
-            Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                const Divider(
-                  thickness: 5,
-                  color: Colors.black,
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned.fill(
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: <Color>[
-                                Color(0xFF0D47A1),
-                                Color(0xFF1976D2),
-                                Color(0xFF42A5F5),
-                              ],
+            Expanded(
+              flex: 0.5.toInt(),
+              child: Transform.rotate(
+                  angle: pi,
+                  child: Text(
+                    player1.toString(),
+                    style: const TextStyle(fontSize: 43),
+                  )),
+            ),
+            Expanded(
+              flex: 1,
+              child: Transform.rotate(
+                  angle: pi,
+                  child: Text(
+                    'Time: $countdown',
+                    style: const TextStyle(fontSize: 43),
+                  )),
+            ),
+            Expanded(
+              flex: 1,
+              child: Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  const Divider(
+                    thickness: 5,
+                    color: Colors.black,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: <Color>[
+                                  Color(0xFF0D47A1),
+                                  Color(0xFF1976D2),
+                                  Color(0xFF42A5F5),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          padding: const EdgeInsets.only(
-                              top: 20, bottom: 20, left: 80, right: 80),
-                          primary: Colors.white,
-                          textStyle: const TextStyle(fontSize: 20),
-                        ),
-                        onPressed: () {
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.only(
+                                top: 20, bottom: 20, left: 80, right: 80),
+                            primary: Colors.white,
+                            textStyle: const TextStyle(fontSize: 20),
+                          ),
+                          onPressed: () {
                             isStop = false;
                             Timer.periodic(const Duration(seconds: 1), (timer) {
-                              if (isStop) timer.cancel();
                               setState(() {
-                                countdown--;
-                                start = 'STOP';
+                                if (isStop) {
+                                  timer.cancel();
+                                } else {
+                                  timeOver();
+                                }
                               });
                             });
-
-                        },
-                        child: Text(start),
-                      ),
-                    ],
+                            setState(() {
+                              //setState separated because to reduce hardware strain (very minor)
+                              start = 'STOP';
+                              one = 'KEEP PRESSING';
+                              two = one;
+                            });
+                          },
+                          child: Text(start),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            const SizedBox(
-              height: 20,
+            Expanded(
+              flex: 1,
+              child: Text(
+                'Time: $countdown',
+                style: const TextStyle(fontSize: 43),
+              ),
             ),
-            Text(
-              countdown.toString(),
-              style: const TextStyle(fontSize: 43),
+            Expanded(
+              flex: 0.5.toInt(),
+              child: Text(
+                player2.toString(),
+                style: const TextStyle(fontSize: 43),
+              ),
             ),
+            Expanded(
+              flex: 2,
+              child: SizedBox(
+                  height: 210,
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        player2++;
+                      });
+                    },
+                    child: Text(two),
+                    style: TextButton.styleFrom(),
+                  )),
+            )
           ],
         ),
       ),
     );
+  }
+}
+
+void timeOver() {
+  countdown--;
+  if (countdown == -1) {
+    isStop = true;
+    player1 = 0;
+    player2 = 0;
+    countdown = 10;
+    one = 'Player 1';
+    two = 'Player 2';
+    start = 'START';
   }
 }

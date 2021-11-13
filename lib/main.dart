@@ -4,13 +4,18 @@ import 'package:finger_war/popup.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-int countdown = 3;
+int countdown = 10;
 bool isStop = true;
 int player1 = 0;
 int player2 = 0;
+int point1 = 0;
+int point2 = 0;
+int total = 0;
 String one = 'Player 1';
 String two = 'Player 2';
 String start = 'START';
+String result = '';
+
 
 void main() {
   runApp(const MyApp());
@@ -58,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() {
                         player1++;
+                        point1 = player1;
                       });
                     },
                     child: Transform.rotate(angle: pi, child: Text(one)),
@@ -164,6 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() {
                         player2++;
+                        point2 = player2;
                       });
                     },
                     child: Text(two),
@@ -189,6 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void timeOver() {
     countdown--;
     if (countdown == -1) {
+      winner();
       isStop = true;
       player1 = 0;
       player2 = 0;
@@ -198,5 +206,17 @@ class _MyHomePageState extends State<MyHomePage> {
       start = 'START';
       popUp(context);
     }
+  }
+}
+
+void winner(){
+  if (point1 == point2){
+    result = 'tie';
+  } else if (point1 > point2){
+    result = '1';
+    total = point1;
+  } else {
+    result = '2';
+    total = point2;
   }
 }

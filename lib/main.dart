@@ -1,10 +1,10 @@
-import 'dart:async';
-
 import 'package:finger_war/popup.dart';
 import 'package:flutter/material.dart';
+
+import 'dart:async';
 import 'dart:math';
 
-int countdown = 15;
+int countdown = 3;
 bool isStop = true;
 int player1 = 0;
 int player2 = 0;
@@ -15,7 +15,6 @@ String one = 'Player 1';
 String two = 'Player 2';
 String start = 'START';
 String result = '';
-
 
 void main() {
   runApp(const MyApp());
@@ -28,19 +27,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -202,7 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
       point2 = 0;
       player1 = 0;
       player2 = 0;
-      countdown = 15;
+      countdown = 3;
       one = 'Player 1';
       two = 'Player 2';
       start = 'START';
@@ -211,11 +207,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-void winner(){
-  if (point1 == point2){
+void winner() {
+  if (point1 == point2) {
     result = 'tie';
     total = point1;
-  } else if (point1 > point2){
+  } else if (point1 > point2) {
     result = 'won by player 1';
     total = point1;
   } else {

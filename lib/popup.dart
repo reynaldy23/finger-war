@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'dart:io' show Platform;
 import 'main.dart';
 
 class WinnerAlert extends StatelessWidget {
@@ -7,20 +9,45 @@ class WinnerAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoAlertDialog(
-      title: const Text('CONGRATULATIONS!', textAlign: TextAlign.center,),
-      content: Text('The match is $result by $total taps.'),
-      actions: [
-        Center(
-          child: TextButton(
+    if (Platform.isIOS) {
+      //for IOS devices only, because if used on Android will cause bug where ok button can't be used
+      return CupertinoAlertDialog(
+        title: const Text(
+          'CONGRATULATIONS!',
+          textAlign: TextAlign.center,
+        ),
+        content: Text('The match is $result by $total taps.'),
+        actions: [
+          Center(
+            child: TextButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
                 total = 0;
               },
               child: const Text('OK'),
-          ),
-        )
-      ],
-    );
+            ),
+          )
+        ],
+      );
+    } else {
+      return AlertDialog(
+        title: const Text(
+          'CONGRATULATIONS!',
+          textAlign: TextAlign.center,
+        ),
+        content: Text('The match is $result by $total taps.'),
+        actions: [
+          Center(
+            child: TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                total = 0;
+              },
+              child: const Text('OK'),
+            ),
+          )
+        ],
+      );
+    }
   }
 }

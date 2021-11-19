@@ -35,9 +35,11 @@ class WinnerAlert extends StatelessWidget {
           'CONGRATULATIONS!',
           textAlign: TextAlign.center,
         ),
-        content: Text('The match is $result by $total taps.'),
+        content: Text('The match is $result by $total taps.',
+            textAlign: TextAlign.center),
         actions: [
-          Center(
+          SizedBox(
+            width: double.infinity,
             child: TextButton(
               onPressed: () {
                 Navigator.of(context).pop();

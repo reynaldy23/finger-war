@@ -51,9 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              flex: 2,
+              flex: 4,
               child: SizedBox(
-                  height: 210,
                   width: double.infinity,
                   child: TextButton(
                     onPressed: () {
@@ -67,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
             ),
             Expanded(
-              flex: 0.5.toInt(),
+              flex: 1,
               child: Transform.rotate(
                   angle: pi,
                   child: Text(
@@ -140,6 +139,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      color: Colors.black,
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.settings,
+                        size: 40,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -151,16 +161,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Expanded(
-              flex: 0.5.toInt(),
+              flex: 1,
               child: Text(
                 player2.toString(),
                 style: const TextStyle(fontSize: 43),
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 4,
               child: SizedBox(
-                  height: 210,
                   width: double.infinity,
                   child: TextButton(
                     onPressed: () {

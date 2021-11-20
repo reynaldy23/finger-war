@@ -1,10 +1,12 @@
-import 'package:finger_war/popup.dart';
 import 'package:flutter/material.dart';
+import 'package:finger_war/popup.dart';
+import 'package:finger_war/setting.dart';
 
 import 'dart:async';
 import 'dart:math';
 
-int countdown = 3;
+
+int countdown = 15;
 bool isStop = true;
 int player1 = 0;
 int player2 = 0;
@@ -13,7 +15,6 @@ int point2 = 0;
 int total = 0;
 String one = 'Player 1';
 String two = 'Player 2';
-String start = 'START';
 String result = '';
 
 void main() {
@@ -43,6 +44,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool status = true;
+
+  disableButton(){
+    setState(() {
+      status = false;
+    });
+  }
+
+  enableButton(){
+    setState(() {
+      status = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,12 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                    onPressed: () {
+                    onPressed: status == false ? () {
                       setState(() {
                         player1++;
                         point1 = player1;
                       });
-                    },
+                    } : null,
                     child: Transform.rotate(angle: pi, child: Text(one)),
                     style: TextButton.styleFrom(),
                   )),
@@ -117,8 +132,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             primary: Colors.white,
                             textStyle: const TextStyle(fontSize: 20),
                           ),
-                          onPressed: () {
+                          onPressed: status ? () {
                             isStop = false;
+                            disableButton();
                             Timer.periodic(const Duration(seconds: 1), (timer) {
                               setState(() {
                                 if (isStop) {
@@ -130,12 +146,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             });
                             setState(() {
                               //setState separated because to reduce hardware strain (very minor)
-                              start = 'STOP';
                               one = 'KEEP PRESSING';
                               two = one;
                             });
-                          },
-                          child: Text(start),
+                          } : null,
+                          child: Text('START'),
                         ),
                       ],
                     ),
@@ -175,12 +190,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                    onPressed: () {
+                    onPressed: status == false ? () {//if status false go state else null
                       setState(() {
                         player2++;
                         point2 = player2;
                       });
-                    },
+                    } : null,
                     child: Text(two),
                     style: TextButton.styleFrom(),
                   )),
@@ -204,16 +219,16 @@ class _MyHomePageState extends State<MyHomePage> {
   void timeOver() {
     countdown--;
     if (countdown == -1) {
+      enableButton();
       winner();
       isStop = true;
       point1 = 0;
       point2 = 0;
       player1 = 0;
       player2 = 0;
-      countdown = 3;
+      countdown = 15;
       one = 'Player 1';
       two = 'Player 2';
-      start = 'START';
       popUp(context);
     }
   }
@@ -230,4 +245,15 @@ void winner() {
     result = 'won by player 2';
     total = point2;
   }
+}
+
+
+void settingPage(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return const Settings();
+    },
+  );
 }

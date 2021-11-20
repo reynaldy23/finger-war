@@ -159,9 +159,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     right: 25,
                     top: 35,
                     child: IconButton(
-                      onPressed: () {
-
-                      },
+                      onPressed: status ? () {
+                        settingPage(context);
+                      }: null,
                       icon: const Icon(
                         Icons.settings,
                         size: 43,

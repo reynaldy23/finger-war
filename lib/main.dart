@@ -86,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               flex: 1,
               child: Stack(
+                clipBehavior: Clip.none,
                 alignment: Alignment.center,
                 children: <Widget>[
                   const Divider(
@@ -139,14 +140,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.centerRight,
+                  Positioned(
+                    right: 25,
+                    top: 35,
                     child: IconButton(
-                      color: Colors.black,
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                       icon: const Icon(
                         Icons.settings,
-                        size: 40,
+                        size: 43,
                       ),
                     ),
                   ),

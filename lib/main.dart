@@ -8,6 +8,7 @@ import 'dart:math';
 
 int countdown = 15;
 bool isStop = true;
+bool themeMode = false;
 int player1 = 0;
 int player2 = 0;
 int point1 = 0;
@@ -150,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               two = one;
                             });
                           } : null,
-                          child: Text('START'),
+                          child: const Text('START'),
                         ),
                       ],
                     ),
@@ -251,7 +252,7 @@ void winner() {
 void settingPage(BuildContext context) {
   showDialog(
     context: context,
-    barrierDismissible: false,
+    barrierDismissible: true,
     builder: (BuildContext context) {
       return const Settings();
     },

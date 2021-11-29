@@ -12,9 +12,8 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-
       child: SizedBox(
-        height: 200,
+        height: 250,
         // child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -59,14 +58,22 @@ class _SettingsState extends State<Settings> {
                           style: TextStyle(fontSize: 20),
                         ),
                         Expanded(
-                          child: Switch(
-                              value: themeMode,
-                              onChanged: (value) {
+                          child: DropdownButton(
+                              value: defaultTime,
+                              onChanged: (newValue){
                                 setState(() {
-                                  themeMode = value;
+                                  defaultTime = newValue.toString();
                                 });
-                              }),
-                        )
+                              },
+                              items: timeSelection.map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(valueItem),
+                                  onTap: (){typeTime();},
+                                );
+                              }).toList(),
+                          ),
+                        ),
                       ],
                     ),
                   ],

@@ -5,10 +5,10 @@ import 'package:finger_war/setting.dart';
 import 'dart:async';
 import 'dart:math';
 
-
-int countdown = 15;
 bool isStop = true;
 bool themeMode = false;
+int countdown = 15;
+int defaultCounter = 15;
 int player1 = 0;
 int player2 = 0;
 int point1 = 0;
@@ -17,6 +17,25 @@ int total = 0;
 String one = 'Player 1';
 String two = 'Player 2';
 String result = '';
+
+
+List<String> timeSelection = <String>[
+  '15',
+  '30',
+  '45',
+  '60',
+];
+String defaultTime = '15';
+
+typeTime(){
+  timeSelection.map((valueItem) {
+    return DropdownMenuItem(
+      value: valueItem,
+      child: Text(valueItem),
+      onTap: (){},
+    );
+  }).toList();
+}
 
 void main() {
   runApp(const MyApp());
@@ -58,6 +77,21 @@ class _MyHomePageState extends State<MyHomePage> {
       status = true;
     });
   }
+
+  buttonTest(){
+    SizedBox(
+      width: double.infinity,
+      child: TextButton(
+        onPressed: () {
+          Navigator.pop(context);
+          total = 0;
+        },
+        child: const Text('OK'),
+      ),
+    );
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -162,6 +196,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: IconButton(
                       onPressed: status ? () {
                         settingPage(context);
+                        setState(() {
+                          player1 = 10;
+                        });
                       }: null,
                       icon: const Icon(
                         Icons.settings,
@@ -227,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
       point2 = 0;
       player1 = 0;
       player2 = 0;
-      countdown = 15;
+      countdown = defaultCounter;
       one = 'Player 1';
       two = 'Player 2';
       popUp(context);
@@ -258,3 +295,4 @@ void settingPage(BuildContext context) {
     },
   );
 }
+

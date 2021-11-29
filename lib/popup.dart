@@ -35,7 +35,7 @@ class WinnerAlert extends StatelessWidget {
           'CONGRATULATIONS!',
           textAlign: TextAlign.center,
         ),
-        content: Text('The match is $result by $total taps.',
+        content: Text('The match is $result with $total taps.',
             textAlign: TextAlign.center),
         actions: [
           SizedBox(

@@ -27,15 +27,6 @@ List<String> timeSelection = <String>[
 ];
 String defaultTime = '15';
 
-typeTime(){
-  timeSelection.map((valueItem) {
-    return DropdownMenuItem(
-      value: valueItem,
-      child: Text(valueItem),
-      onTap: (){},
-    );
-  }).toList();
-}
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +35,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -60,11 +50,15 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   bool status = true;
+
+  void refresher(){
+    setState((){});
+  }
 
   disableButton(){
     setState(() {
@@ -90,8 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +172,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               });
                             });
                             setState(() {
-                              //setState separated because to reduce hardware strain (very minor)
                               one = 'KEEP PRESSING';
                               two = one;
                             });
@@ -196,9 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: IconButton(
                       onPressed: status ? () {
                         settingPage(context);
-                        setState(() {
-                          player1 = 10;
-                        });
+                        refresher();
                       }: null,
                       icon: const Icon(
                         Icons.settings,

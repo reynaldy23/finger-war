@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'inherited.dart';
 import 'main.dart';
 
 class Settings extends StatefulWidget {
@@ -9,6 +10,26 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  void first(){
+    final provider1 = Updating.of(context);
+    provider1.type1();
+  }
+
+  void second(){
+    final provider2 = Updating.of(context);
+    provider2.type2();
+  }
+
+  void third(){
+    final provider3 = Updating.of(context);
+    provider3.type3();
+  }
+
+  void fourth(){
+    final provider4 = Updating.of(context);
+    provider4.type4();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -61,25 +82,20 @@ class _SettingsState extends State<Settings> {
                           value: defaultTime,
                           onChanged: (newValue) {
                             setState(() {
-                              defaultTime = newValue.toString();
-                              if (newValue == '15'){
-                                countdown = 15;
-                                defaultCounter = 15;
-                              }
-                              else if (newValue == '30') {
-                                countdown = 30;
-                                defaultCounter = 30;
-                              }
-                              else if (newValue == '45') {
-                                countdown = 45;
-                                defaultCounter = 45;
-                              }
-                              else if (newValue == '60') {
-                                countdown = 60;
-                                defaultCounter = 60;
-                              }
-                            }
+                              defaultTime = newValue.toString();}
                             );
+                            if (newValue == '15'){
+                              first();
+                            }
+                            else if (newValue == '30') {
+                              second();
+                            }
+                            else if (newValue == '45') {
+                              third();
+                            }
+                            else if (newValue == '60') {
+                              fourth();
+                            }
                           },
                           items: timeSelection.map((valueItem) {
                             return DropdownMenuItem(

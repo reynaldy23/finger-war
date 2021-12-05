@@ -1,16 +1,65 @@
 import 'package:flutter/material.dart';
 
+class StateWidget extends StatefulWidget {
+  final Widget child;
+
+  const StateWidget({Key? key, required this.child}) : super(key: key);
+
+  @override
+  _StateWidgetState createState() => _StateWidgetState();
+}
+
+class _StateWidgetState extends State<StateWidget> {
+  int counter = 15;
+
+  type1(){
+    setState(() {
+      counter = 15;
+    });
+  }
+
+  type2(){
+    setState(() {
+      counter = 30;
+    });
+  }
+
+  type3(){
+    setState(() {
+      counter = 45;
+    });
+  }
+
+  type4(){
+    setState(() {
+      counter = 60;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Updating(
+      child: widget.child,
+      counter: counter,
+      stateWidget: this,
+    );
+  }
+}
+
+
 class Updating extends InheritedWidget {
   final int counter;
+  final _StateWidgetState stateWidget;
 
   const Updating({
     Key? key,
     required Widget child,
     required this.counter,
+    required this.stateWidget,
   }) : super(key: key, child: child);
 
-  static Updating of(BuildContext context) {
-    final Updating? result = context.dependOnInheritedWidgetOfExactType<Updating>() as Updating;
+  static _StateWidgetState of(BuildContext context) {
+    final _StateWidgetState? result = context.dependOnInheritedWidgetOfExactType<Updating>()!.stateWidget;
     assert(result != null, 'No Updating found in context');
     return result!;
   }

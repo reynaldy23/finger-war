@@ -39,8 +39,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Updating(
-      counter: 0,
+    return StateWidget(
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -93,6 +92,8 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final counter = Updating.of(context).counter;
+
+
     return Scaffold(
       body: Center(
         child: Column(

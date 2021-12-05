@@ -5,6 +5,8 @@ import 'package:finger_war/setting.dart';
 import 'dart:async';
 import 'dart:math';
 
+import 'inherited.dart';
+
 bool isStop = true;
 bool themeMode = false;
 int countdown = 15;
@@ -37,11 +39,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Updating(
+      counter: 0,
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(),
       ),
-      home: const MyHomePage(),
     );
   }
 }
@@ -87,6 +92,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final counter = Updating.of(context).counter;
     return Scaffold(
       body: Center(
         child: Column(
@@ -121,7 +127,7 @@ class MyHomePageState extends State<MyHomePage> {
               child: Transform.rotate(
                   angle: pi,
                   child: Text(
-                    'Time: $countdown',
+                    'Time: $counter',
                     style: const TextStyle(fontSize: 43),
                   )),
             ),
@@ -201,7 +207,7 @@ class MyHomePageState extends State<MyHomePage> {
             Expanded(
               flex: 1,
               child: Text(
-                'Time: $countdown',
+                'Time: $counter',
                 style: const TextStyle(fontSize: 43),
               ),
             ),

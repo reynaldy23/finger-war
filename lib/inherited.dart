@@ -10,7 +10,7 @@ class Updating extends InheritedWidget {
   }) : super(key: key, child: child);
 
   static Updating of(BuildContext context) {
-    final Updating? result = context.dependOnInheritedWidgetOfExactType<Updating>();
+    final Updating? result = context.dependOnInheritedWidgetOfExactType<Updating>() as Updating;
     assert(result != null, 'No Updating found in context');
     return result!;
   }

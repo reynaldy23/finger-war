@@ -16,7 +16,7 @@ class _StateWidgetState extends State<StateWidget> {
   type1(){
     setState(() {
       counter = 15;
-      defaultCounter = 30;
+      defaultCounter = 15;
     });
   }
 

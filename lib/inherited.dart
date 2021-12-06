@@ -11,30 +11,48 @@ class StateWidget extends StatefulWidget {
 
 class _StateWidgetState extends State<StateWidget> {
   int counter = 15;
+  int defaultCounter = 15;
 
   type1(){
     setState(() {
       counter = 15;
+      defaultCounter = 30;
     });
   }
 
   type2(){
     setState(() {
       counter = 30;
+      defaultCounter = 30;
     });
   }
 
   type3(){
     setState(() {
       counter = 45;
+      defaultCounter = 45;
     });
   }
 
   type4(){
     setState(() {
       counter = 60;
+      defaultCounter = 60;
     });
   }
+
+  timeCount(){
+    setState(() {
+      counter--;
+    });
+  }
+
+  resetCount(){
+    setState(() {
+      counter = defaultCounter;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {

@@ -9,8 +9,6 @@ import 'inherited.dart';
 
 bool isStop = true;
 bool themeMode = false;
-int countdown = 15;
-int defaultCounter = 15;
 int player1 = 0;
 int player2 = 0;
 int point1 = 0;
@@ -60,10 +58,6 @@ class MyHomePage extends StatefulWidget {
 class MyHomePageState extends State<MyHomePage> {
   bool status = true;
 
-  void refresher(){
-    setState((){});
-  }
-
   disableButton(){
     setState(() {
       status = false;
@@ -92,6 +86,25 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final counter = Updating.of(context).counter;
+    int countdown = counter;
+
+    void timeOver() {
+      Updating.of(context).timeCount();
+      countdown--;
+      if (countdown == -1) {
+        Updating.of(context).resetCount();
+        enableButton();
+        winner();
+        isStop = true;
+        point1 = 0;
+        point2 = 0;
+        player1 = 0;
+        player2 = 0;
+        one = 'Player 1';
+        two = 'Player 2';
+        popUp(context);
+      }
+    }
 
 
     return Scaffold(
@@ -170,13 +183,12 @@ class MyHomePageState extends State<MyHomePage> {
                             isStop = false;
                             disableButton();
                             Timer.periodic(const Duration(seconds: 1), (timer) {
-                              setState(() {
+
                                 if (isStop) {
                                   timer.cancel();
                                 } else {
                                   timeOver();
                                 }
-                              });
                             });
                             setState(() {
                               one = 'KEEP PRESSING';
@@ -194,7 +206,6 @@ class MyHomePageState extends State<MyHomePage> {
                     child: IconButton(
                       onPressed: status ? () {
                         settingPage(context);
-                        refresher();
                       }: null,
                       icon: const Icon(
                         Icons.settings,
@@ -250,22 +261,6 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void timeOver() {
-    countdown--;
-    if (countdown == -1) {
-      enableButton();
-      winner();
-      isStop = true;
-      point1 = 0;
-      point2 = 0;
-      player1 = 0;
-      player2 = 0;
-      countdown = defaultCounter;
-      one = 'Player 1';
-      two = 'Player 2';
-      popUp(context);
-    }
-  }
 }
 
 void winner() {

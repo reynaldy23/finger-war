@@ -18,7 +18,6 @@ String one = 'Player 1';
 String two = 'Player 2';
 String result = '';
 
-
 List<String> timeSelection = <String>[
   '15',
   '30',
@@ -26,7 +25,6 @@ List<String> timeSelection = <String>[
   '60',
 ];
 String defaultTime = '15';
-
 
 void main() {
   runApp(const MyApp());
@@ -58,19 +56,19 @@ class MyHomePage extends StatefulWidget {
 class MyHomePageState extends State<MyHomePage> {
   bool status = true;
 
-  disableButton(){
+  disableButton() {
     setState(() {
       status = false;
     });
   }
 
-  enableButton(){
+  enableButton() {
     setState(() {
       status = true;
     });
   }
 
-  buttonTest(){
+  buttonTest() {
     SizedBox(
       width: double.infinity,
       child: TextButton(
@@ -106,7 +104,6 @@ class MyHomePageState extends State<MyHomePage> {
       }
     }
 
-
     return Scaffold(
       body: Center(
         child: Column(
@@ -117,12 +114,14 @@ class MyHomePageState extends State<MyHomePage> {
               child: SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                    onPressed: status == false ? () {
-                      setState(() {
-                        player1++;
-                        point1 = player1;
-                      });
-                    } : null,
+                    onPressed: status == false
+                        ? () {
+                            setState(() {
+                              player1++;
+                              point1 = player1;
+                            });
+                          }
+                        : null,
                     child: Transform.rotate(angle: pi, child: Text(one)),
                     style: TextButton.styleFrom(),
                   )),
@@ -179,22 +178,24 @@ class MyHomePageState extends State<MyHomePage> {
                             primary: Colors.white,
                             textStyle: const TextStyle(fontSize: 20),
                           ),
-                          onPressed: status ? () {
-                            isStop = false;
-                            disableButton();
-                            Timer.periodic(const Duration(seconds: 1), (timer) {
-
-                                if (isStop) {
-                                  timer.cancel();
-                                } else {
-                                  timeOver();
+                          onPressed: status
+                              ? () {
+                                  isStop = false;
+                                  disableButton();
+                                  Timer.periodic(const Duration(seconds: 1),
+                                      (timer) {
+                                    if (isStop) {
+                                      timer.cancel();
+                                    } else {
+                                      timeOver();
+                                    }
+                                  });
+                                  setState(() {
+                                    one = 'KEEP PRESSING';
+                                    two = one;
+                                  });
                                 }
-                            });
-                            setState(() {
-                              one = 'KEEP PRESSING';
-                              two = one;
-                            });
-                          } : null,
+                              : null,
                           child: const Text('START'),
                         ),
                       ],
@@ -204,9 +205,11 @@ class MyHomePageState extends State<MyHomePage> {
                     right: 25,
                     top: 35,
                     child: IconButton(
-                      onPressed: status ? () {
-                        settingPage(context);
-                      }: null,
+                      onPressed: status
+                          ? () {
+                              settingPage(context);
+                            }
+                          : null,
                       icon: const Icon(
                         Icons.settings,
                         size: 43,
@@ -226,7 +229,7 @@ class MyHomePageState extends State<MyHomePage> {
             Expanded(
               flex: 1,
               child: Text(
-                player2.toString(),
+                player2.toString(), //'$player2',
                 style: const TextStyle(fontSize: 43),
               ),
             ),
@@ -235,12 +238,15 @@ class MyHomePageState extends State<MyHomePage> {
               child: SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                    onPressed: status == false ? () {//if status false go state else null
-                      setState(() {
-                        player2++;
-                        point2 = player2;
-                      });
-                    } : null,
+                    onPressed: status == false
+                        ? () {
+                            //if status false go state else null
+                            setState(() {
+                              player2++;
+                              point2 = player2;
+                            });
+                          }
+                        : null,
                     child: Text(two),
                     style: TextButton.styleFrom(),
                   )),
@@ -260,7 +266,6 @@ class MyHomePageState extends State<MyHomePage> {
       },
     );
   }
-
 }
 
 void winner() {
@@ -276,7 +281,6 @@ void winner() {
   }
 }
 
-
 void settingPage(BuildContext context) {
   showDialog(
     context: context,
@@ -286,4 +290,3 @@ void settingPage(BuildContext context) {
     },
   );
 }
-

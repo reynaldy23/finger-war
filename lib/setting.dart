@@ -10,7 +10,6 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -63,18 +62,15 @@ class _SettingsState extends State<Settings> {
                           value: defaultTime,
                           onChanged: (newValue) {
                             setState(() {
-                              defaultTime = newValue.toString();}
-                            );
-                            if (newValue == '15'){
+                              defaultTime = newValue.toString();
+                            });
+                            if (newValue == '15') {
                               Updating.of(context).type1();
-                            }
-                            else if (newValue == '30') {
+                            } else if (newValue == '30') {
                               Updating.of(context).type2();
-                            }
-                            else if (newValue == '45') {
+                            } else if (newValue == '45') {
                               Updating.of(context).type3();
-                            }
-                            else if (newValue == '60') {
+                            } else if (newValue == '60') {
                               Updating.of(context).type4();
                             }
                           },
@@ -84,11 +80,10 @@ class _SettingsState extends State<Settings> {
                               child: Text(valueItem),
                               onTap: () {
                                 timeSelection.map(
-                                      (valueItem) {
+                                  (valueItem) {
                                     return DropdownMenuItem(
                                         value: valueItem,
-                                        child: Text(valueItem)
-                                    );
+                                        child: Text(valueItem));
                                   },
                                 );
                               },

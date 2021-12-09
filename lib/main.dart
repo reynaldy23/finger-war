@@ -122,7 +122,7 @@ class MyHomePageState extends State<MyHomePage> {
                             });
                           }
                         : null,
-                    child: Transform.rotate(angle: pi, child: Text(one)),
+                    child: Transform.rotate(angle: pi, child: Text(two)),
                     style: TextButton.styleFrom(),
                   )),
             ),
@@ -238,16 +238,15 @@ class MyHomePageState extends State<MyHomePage> {
               child: SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                    onPressed: status == false
+                    onPressed: status == false //if status false go state else null
                         ? () {
-                            //if status false go state else null
                             setState(() {
                               player2++;
                               point2 = player2;
                             });
                           }
                         : null,
-                    child: Text(two),
+                    child: Text(one),
                     style: TextButton.styleFrom(),
                   )),
             )

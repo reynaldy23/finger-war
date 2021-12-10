@@ -15,6 +15,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 18),
       backgroundColor: Colors.lightBlueAccent,
       child: SizedBox(
         height: 230,
@@ -40,7 +41,7 @@ class _SettingsState extends State<Settings> {
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Text(
-                        'Theme: ',
+                        'Theme:     ',
                         style: TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(
@@ -53,17 +54,17 @@ class _SettingsState extends State<Settings> {
                       )
                     ],
                   ),
-                  Container(height: 10),
+                  Container(height: 15),
                   Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Text(
-                        'Time:',
+                        'Time: ',
                         style: TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(initialLabelIndex: 0,
-                          totalSwitches: 3,
-                          labels: const ['15', '30', '45'], //index 0,1,2
+                          totalSwitches: 4,
+                          labels: const ['15', '30', '45', '60'], //index 0,1,2
                           onToggle: (index) {
                               if (index == 0){
                                 Updating.of(context).type1();
@@ -71,6 +72,8 @@ class _SettingsState extends State<Settings> {
                                 Updating.of(context).type2();
                               } else if (index ==2){
                                 Updating.of(context).type3();
+                              } else if (index == 3){
+                                Updating.of(context).type4();
                               }
                           }),
                       // SizedBox(
@@ -111,7 +114,7 @@ class _SettingsState extends State<Settings> {
                       // ),
                     ],
                   ),
-                  Container(height: 10),
+                  Container(height: 15),
                   Row(
                     children: const <Widget>[
                       Text(

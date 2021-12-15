@@ -10,6 +10,7 @@ import 'inherited.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
+
 bool isStop = true;
 bool themeMode = false;
 int player1 = 0;
@@ -21,7 +22,6 @@ String one = 'Player 1';
 String two = 'Player 2';
 String result = '';
 
-String font = 'Pacifico';
 List<Color> neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
 Color neonBorder = const Color(0xFF1C0C4E);
 List<Color> neonGradient = <Color>[
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateWidget(
       child: MaterialApp(
-        theme: ThemeData(fontFamily: GoogleFonts.getFont(font).fontFamily),
+        theme: ThemeData(fontFamily: GoogleFonts.getFont(Updating.of(context).font).fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -217,13 +217,8 @@ class MyHomePageState extends State<MyHomePage> {
                                   });
                                 }
                               : null,
-                          child: Text(
-                            'START',
-                            style: TextStyle(
-                                fontFamily:
-                                    GoogleFonts.getFont(font).fontFamily),
-                            overflow: TextOverflow.visible,
-                          ),
+                          child: const Text(
+                            'START'),
                         ),
                       ],
                     ),

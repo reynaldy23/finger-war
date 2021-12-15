@@ -13,6 +13,26 @@ class _StateWidgetState extends State<StateWidget> {
   int counter = 15;
   int defaultCounter = 15;
 
+  String font = 'Press Start 2P';
+
+  themeA(){
+    setState(() {
+      font = 'Pacifico';
+    });
+  }
+
+  themeB(){
+    setState(() {
+      font = 'Roboto';
+    });
+  }
+
+  themeC(){
+    setState(() {
+      font = 'Fira Sans';
+    });
+  }
+
 
   type1() {
     setState(() {
@@ -60,6 +80,7 @@ class _StateWidgetState extends State<StateWidget> {
       child: widget.child,
       counter: counter,
       stateWidget: this,
+      font: font,
     );
   }
 }
@@ -67,12 +88,14 @@ class _StateWidgetState extends State<StateWidget> {
 class Updating extends InheritedWidget {
   final int counter;
   final _StateWidgetState stateWidget;
+  final String font;
 
   const Updating({
     Key? key,
     required Widget child,
     required this.counter,
     required this.stateWidget,
+    required this.font,
   }) : super(key: key, child: child);
 
   static _StateWidgetState of(BuildContext context) {
@@ -84,7 +107,7 @@ class Updating extends InheritedWidget {
 
   @override
   bool updateShouldNotify(Updating oldWidget) {
-    return oldWidget.counter != counter;
+    return oldWidget.counter != counter || oldWidget.font != font;
   }
 }
 

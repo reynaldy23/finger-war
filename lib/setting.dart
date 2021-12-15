@@ -46,14 +46,14 @@ class _SettingsState extends State<Settings> {
                       ToggleSwitch(
                         initialLabelIndex: 0,
                         totalSwitches: 3,
-                        labels: const ['Neon', 'B', 'C'], //index 0,1,2
+                        labels: const ['A', 'B', 'C'], //index 0,1,2
                         onToggle: (index) {
                           if (index == 0){
-                            // Updating.of(context).themeA();
+                            Updating.of(context).themeA();
                           }else if (index == 1){
-                            // Updating.of(context).themeB();
+                            Updating.of(context).themeB();
                           } else if (index ==2){
-                            // Updating.of(context).themeC();
+                            Updating.of(context).themeC();
                           }
                         },
                       )

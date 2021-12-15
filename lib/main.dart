@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:finger_war/popup.dart';
 import 'package:finger_war/setting.dart';
@@ -6,6 +7,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'inherited.dart';
+
+import 'package:google_fonts/google_fonts.dart';
 
 bool isStop = true;
 bool themeMode = false;
@@ -17,6 +20,15 @@ int total = 0;
 String one = 'Player 1';
 String two = 'Player 2';
 String result = '';
+
+String font = 'Pacifico';
+List<Color> neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+Color neonBorder = const Color(0xFF1C0C4E);
+List<Color> neonGradient = <Color>[
+  const Color(0xFFCCFF8C),
+  const Color(0xFF81DE76),
+  const Color(0xFFFFA351)
+];
 
 List<String> timeSelection = <String>[
   '15',
@@ -37,9 +49,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateWidget(
       child: MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: ThemeData(fontFamily: GoogleFonts.getFont(font).fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -89,7 +99,7 @@ class MyHomePageState extends State<MyHomePage> {
     void timeOver() {
       Updating.of(context).timeCount();
       countdown--;
-      if (countdown == -1) {
+      if (countdown == 0) {
         Updating.of(context).resetCount();
         enableButton();
         winner();
@@ -105,6 +115,7 @@ class MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFDE7D9),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -113,28 +124,37 @@ class MyHomePageState extends State<MyHomePage> {
               flex: 4,
               child: SizedBox(
                   width: double.infinity,
-                  child: TextButton(
-                    onPressed: status == false
-                        ? () {
-                            setState(() {
-                              player1++;
-                              point1 = player1;
-                            });
-                          }
-                        : null,
-                    child: Transform.rotate(angle: pi, child: Text(two)),
-                    style: TextButton.styleFrom(),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: RadialGradient(
+                        center: const Alignment(0, 0),
+                        radius: 0.28,
+                        colors: <Color>[neonButton[0], neonButton[1]],
+                        stops: const <double>[0.9, 1.0],
+                      ),
+                      border: Border.all(width: 3, color: neonBorder),
+                      borderRadius: const BorderRadius.all(Radius.circular(15)),
+                    ),
+                    child: TextButton(
+                      onPressed: status == false
+                          ? () {
+                              setState(() {
+                                player2++;
+                                point2 = player2;
+                              });
+                            }
+                          : null,
+                      child: Transform.rotate(angle: pi, child: Text(two)),
+                      style: TextButton.styleFrom(),
+                    ),
                   )),
             ),
-            Expanded(
-              flex: 1,
-              child: Transform.rotate(
-                  angle: pi,
-                  child: Text(
-                    player1.toString(),
-                    style: const TextStyle(fontSize: 43),
-                  )),
-            ),
+            Transform.rotate(
+                angle: pi,
+                child: Text(
+                  player2.toString(),
+                  style: const TextStyle(fontSize: 43),
+                )),
             Expanded(
               flex: 1,
               child: Transform.rotate(
@@ -142,6 +162,7 @@ class MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     'Time: $counter',
                     style: const TextStyle(fontSize: 43),
+                    overflow: TextOverflow.visible,
                   )),
             ),
             Expanded(
@@ -160,12 +181,12 @@ class MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Positioned.fill(
                           child: Container(
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: <Color>[
-                                  Color(0xFF0D47A1),
-                                  Color(0xFF1976D2),
-                                  Color(0xFF42A5F5),
+                                  neonGradient[0],
+                                  neonGradient[1],
+                                  neonGradient[2],
                                 ],
                               ),
                             ),
@@ -174,7 +195,7 @@ class MyHomePageState extends State<MyHomePage> {
                         TextButton(
                           style: TextButton.styleFrom(
                             padding: const EdgeInsets.only(
-                                top: 20, bottom: 20, left: 80, right: 80),
+                                left: 60, right: 60),
                             primary: Colors.white,
                             textStyle: const TextStyle(fontSize: 20),
                           ),
@@ -196,7 +217,13 @@ class MyHomePageState extends State<MyHomePage> {
                                   });
                                 }
                               : null,
-                          child: const Text('START'),
+                          child: Text(
+                            'START',
+                            style: TextStyle(
+                                fontFamily:
+                                    GoogleFonts.getFont(font).fontFamily),
+                            overflow: TextOverflow.visible,
+                          ),
                         ),
                       ],
                     ),
@@ -224,30 +251,42 @@ class MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'Time: $counter',
                 style: const TextStyle(fontSize: 43),
+                overflow: TextOverflow.visible,
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Text(
-                player2.toString(), //'$player2',
-                style: const TextStyle(fontSize: 43),
-              ),
+            Text(
+              player1.toString(), //'$player1',
+              style: const TextStyle(fontSize: 43),
+
             ),
             Expanded(
               flex: 4,
               child: SizedBox(
                   width: double.infinity,
-                  child: TextButton(
-                    onPressed: status == false //if status false go state else null
-                        ? () {
-                            setState(() {
-                              player2++;
-                              point2 = player2;
-                            });
-                          }
-                        : null,
-                    child: Text(one),
-                    style: TextButton.styleFrom(),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: RadialGradient(
+                        center: const Alignment(0, 0),
+                        radius: 0.28,
+                        colors: <Color>[neonButton[0], neonButton[1]],
+                        stops: const <double>[0.9, 1.0],
+                      ),
+                      border: Border.all(width: 3, color: neonBorder),
+                      borderRadius: const BorderRadius.all(Radius.circular(15)),
+                    ),
+                    child: TextButton(
+                      onPressed:
+                          status == false //if status false go state else null
+                              ? () {
+                                  setState(() {
+                                    player1++;
+                                    point1 = player1;
+                                  });
+                                }
+                              : null,
+                      child: Text(one),
+                      style: TextButton.styleFrom(),
+                    ),
                   )),
             )
           ],

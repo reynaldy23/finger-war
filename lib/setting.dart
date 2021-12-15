@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'inherited.dart';
-import 'main.dart';
 
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -18,7 +17,7 @@ class _SettingsState extends State<Settings> {
       insetPadding: const EdgeInsets.symmetric(horizontal: 18),
       backgroundColor: Colors.lightBlueAccent,
       child: SizedBox(
-        height: 230,
+        height: 250,
         child: Column(
           children: <Widget>[
             const Padding(
@@ -47,9 +46,15 @@ class _SettingsState extends State<Settings> {
                       ToggleSwitch(
                         initialLabelIndex: 0,
                         totalSwitches: 3,
-                        labels: const ['A', 'B', 'C'], //index 0,1,2
+                        labels: const ['Neon', 'B', 'C'], //index 0,1,2
                         onToggle: (index) {
-                          print('switched to: $index');
+                          if (index == 0){
+                            // Updating.of(context).themeA();
+                          }else if (index == 1){
+                            // Updating.of(context).themeB();
+                          } else if (index ==2){
+                            // Updating.of(context).themeC();
+                          }
                         },
                       )
                     ],
@@ -68,7 +73,7 @@ class _SettingsState extends State<Settings> {
                           onToggle: (index) {
                               if (index == 0){
                                 Updating.of(context).type1();
-                              } else if (index == 1){
+                              }else if (index == 1){
                                 Updating.of(context).type2();
                               } else if (index ==2){
                                 Updating.of(context).type3();

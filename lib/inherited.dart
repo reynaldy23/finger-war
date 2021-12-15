@@ -13,6 +13,7 @@ class _StateWidgetState extends State<StateWidget> {
   int counter = 15;
   int defaultCounter = 15;
 
+
   type1() {
     setState(() {
       counter = 15;
@@ -86,3 +87,50 @@ class Updating extends InheritedWidget {
     return oldWidget.counter != counter;
   }
 }
+
+
+// String font = 'Press Start 2P';
+// List<Color> neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+// Color neonBorder = const Color(0xFF1C0C4E);
+// List<Color> neonGradient = <Color>[
+//   const Color(0xFFCCFF8C),
+//   const Color(0xFF81DE76),
+//   const Color(0xFFFFA351)
+// ];
+//
+// themeA(){
+//   setState(() {
+//     font = 'Press Start 2P';
+//     neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+//     neonBorder = const Color(0xFF1C0C4E);
+//     neonGradient = <Color>[
+//       const Color(0xFFCCFF8C),
+//       const Color(0xFF81DE76),
+//       const Color(0xFFFFA351)
+//     ];
+//   });
+// }
+// themeB(){
+//   setState(() {
+//     font = 'Odibee Sans';
+//     neonButton = <Color>[const Color(0xFF9994A3), const Color(0xFF0DFF4C)];
+//     neonBorder = const Color(0xFFAE9CEF);
+//     neonGradient = <Color>[
+//       const Color(0xFFE35A5A),
+//       const Color(0xFFEC3636),
+//       const Color(0xFF582B01)
+//     ];
+//   });
+// }
+// themeC(){
+//   setState(() {
+//     font = 'Pacifico';
+//     neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+//     neonBorder = const Color(0xFF1C0C4E);
+//     neonGradient = <Color>[
+//       const Color(0xFFCCFF8C),
+//       const Color(0xFF81DE76),
+//       const Color(0xFFFFA351)
+//     ];
+//   });
+// }

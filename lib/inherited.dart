@@ -13,23 +13,48 @@ class _StateWidgetState extends State<StateWidget> {
   int counter = 15;
   int defaultCounter = 15;
 
-  String font = 'Pacifico';
+  List<Color> neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+  Color neonBorder = const Color(0xFF1C0C4E);
+  List<Color> neonGradient = <Color>[
+    const Color(0xFFCCFF8C),
+    const Color(0xFF81DE76),
+    const Color(0xFFFFA351)
+  ];
+
 
   themeA(){
     setState(() {
-      font = 'Pacifico';
+      neonButton = <Color>[const Color(0xFF7100FD), const Color(0xFFA88181)];
+      neonBorder = const Color(0xFFDCAB45);
+      neonGradient = <Color>[
+        const Color(0xFFFF0000),
+        const Color(0xFFD93D3D),
+        const Color(0xFFA35555)
+      ];
     });
   }
 
   themeB(){
     setState(() {
-      font = 'Roboto';
+      neonButton = <Color>[const Color(0xFF9B63F6), const Color(0xFF4405AA)];
+      neonBorder = const Color(0xFF676286);
+      neonGradient = <Color>[
+        const Color(0xFF263D10),
+        const Color(0xFF318224),
+        const Color(0xFFFFBC80)
+      ];
     });
   }
 
   themeC(){
     setState(() {
-      font = 'Fira Sans';
+      neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+      neonBorder = const Color(0xFF1C0C4E);
+      neonGradient = <Color>[
+        const Color(0xFFCCFF8C),
+        const Color(0xFF81DE76),
+        const Color(0xFFFFA351)
+      ];
     });
   }
 
@@ -80,7 +105,7 @@ class _StateWidgetState extends State<StateWidget> {
       child: widget.child,
       counter: counter,
       stateWidget: this,
-      font: font,
+      neonBorder: neonBorder,
     );
   }
 }
@@ -88,14 +113,14 @@ class _StateWidgetState extends State<StateWidget> {
 class Updating extends InheritedWidget {
   final int counter;
   final _StateWidgetState stateWidget;
-  final String font;
+  final Color neonBorder;
 
   const Updating({
     Key? key,
     required Widget child,
     required this.counter,
     required this.stateWidget,
-    required this.font,
+    required this.neonBorder,
   }) : super(key: key, child: child);
 
   static _StateWidgetState of(BuildContext context) {
@@ -107,7 +132,7 @@ class Updating extends InheritedWidget {
 
   @override
   bool updateShouldNotify(Updating oldWidget) {
-    return oldWidget.counter != counter || oldWidget.font != font;
+    return oldWidget.counter != counter || oldWidget.neonBorder != neonBorder;
   }
 }
 

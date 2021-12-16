@@ -21,13 +21,6 @@ String one = 'Player 1';
 String two = 'Player 2';
 String result = '';
 
-List<Color> neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
-Color neonBorder = const Color(0xFF1C0C4E);
-List<Color> neonGradient = <Color>[
-  const Color(0xFFCCFF8C),
-  const Color(0xFF81DE76),
-  const Color(0xFFFFA351)
-];
 
 List<String> timeSelection = <String>[
   '15',
@@ -48,7 +41,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateWidget(
-
       child: MaterialApp(
         theme: ThemeData(fontFamily: GoogleFonts.getFont('Pacifico').fontFamily),
         home: const MyHomePage(),
@@ -66,7 +58,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool status = true;
-  String font = 'Roboto';
 
 
   disableButton() {
@@ -98,10 +89,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final counter = Updating.of(context).counter;
     int countdown = counter;
-    final fontSave = Updating.of(context).font;
-    String font = fontSave;
-    print(fontSave);
-    print(font);
+
+    final neonBorder = Updating.of(context).neonBorder;
+    final neonButton = Updating.of(context).neonButton;
+    final neonGradient = Updating.of(context).neonGradient;
+
     void timeOver() {
       Updating.of(context).timeCount();
       countdown--;

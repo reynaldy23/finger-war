@@ -13,7 +13,7 @@ class _StateWidgetState extends State<StateWidget> {
   int counter = 15;
   int defaultCounter = 15;
 
-  String font = 'Press Start 2P';
+  String font = 'Pacifico';
 
   themeA(){
     setState(() {

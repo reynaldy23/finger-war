@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:finger_war/popup.dart';
 import 'package:finger_war/setting.dart';
@@ -43,13 +42,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StateWidget(
+
       child: MaterialApp(
-        theme: ThemeData(fontFamily: GoogleFonts.getFont(Updating.of(context).font).fontFamily),
+        theme: ThemeData(fontFamily: GoogleFonts.getFont('Pacifico').fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -60,11 +61,13 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> {
   bool status = true;
+  String font = 'Roboto';
+
 
   disableButton() {
     setState(() {
@@ -95,7 +98,10 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final counter = Updating.of(context).counter;
     int countdown = counter;
-
+    final fontSave = Updating.of(context).font;
+    String font = fontSave;
+    print(fontSave);
+    print(font);
     void timeOver() {
       Updating.of(context).timeCount();
       countdown--;

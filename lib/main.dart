@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:finger_war/popup.dart';
 import 'package:finger_war/setting.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'dart:async';
 import 'dart:math';
 
 import 'inherited.dart';
 
-import 'package:google_fonts/google_fonts.dart';
-
-
-bool isStop = true;
 bool themeMode = false;
 int player1 = 0;
 int player2 = 0;
@@ -20,7 +17,6 @@ int total = 0;
 String one = 'Player 1';
 String two = 'Player 2';
 String result = '';
-
 
 List<String> timeSelection = <String>[
   '15',
@@ -35,14 +31,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StateWidget(
       child: MaterialApp(
-        theme: ThemeData(fontFamily: GoogleFonts.getFont('Pacifico').fontFamily),
+        theme:
+            ThemeData(fontFamily: GoogleFonts.getFont('Pacifico').fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -57,49 +53,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool status = true;
-
-
-  disableButton() {
-    setState(() {
-      status = false;
-    });
-  }
-
-  enableButton() {
-    setState(() {
-      status = true;
-    });
-  }
-
-  buttonTest() {
-    SizedBox(
-      width: double.infinity,
-      child: TextButton(
-        onPressed: () {
-          Navigator.pop(context);
-          total = 0;
-        },
-        child: const Text('OK'),
-      ),
-    );
-  }
+  bool buttonStatus = true;
 
   @override
   Widget build(BuildContext context) {
     final counter = Updating.of(context).counter;
-    int countdown = counter;
-
     final neonBorder = Updating.of(context).neonBorder;
     final neonButton = Updating.of(context).neonButton;
     final neonGradient = Updating.of(context).neonGradient;
+
+    bool isStop = true;
+    int countdown = counter;
 
     void timeOver() {
       Updating.of(context).timeCount();
       countdown--;
       if (countdown == 0) {
         Updating.of(context).resetCount();
-        enableButton();
+        buttonStatus = true;
         winner();
         isStop = true;
         point1 = 0;
@@ -134,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
                     ),
                     child: TextButton(
-                      onPressed: status == false
+                      onPressed: buttonStatus == false
                           ? () {
                               setState(() {
                                 player2++;
@@ -150,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Transform.rotate(
                 angle: pi,
                 child: Text(
-                  player2.toString(),
+                  '$player2', //alt -> player1.toString()
                   style: const TextStyle(fontSize: 43),
                 )),
             Expanded(
@@ -192,15 +163,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         TextButton(
                           style: TextButton.styleFrom(
-                            padding: const EdgeInsets.only(
-                                left: 60, right: 60),
+                            padding: const EdgeInsets.only(left: 60, right: 60),
                             primary: Colors.white,
                             textStyle: const TextStyle(fontSize: 20),
                           ),
-                          onPressed: status
+                          onPressed: buttonStatus
                               ? () {
-                                  isStop = false;
-                                  disableButton();
                                   Timer.periodic(const Duration(seconds: 1),
                                       (timer) {
                                     if (isStop) {
@@ -210,13 +178,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     }
                                   });
                                   setState(() {
+                                    isStop = false;
+                                    buttonStatus = false;
                                     one = 'KEEP PRESSING';
                                     two = one;
                                   });
                                 }
                               : null,
-                          child: const Text(
-                            'START'),
+                          child: const Text('START'),
                         ),
                       ],
                     ),
@@ -225,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     right: 25,
                     top: 35,
                     child: IconButton(
-                      onPressed: status
+                      onPressed: buttonStatus
                           ? () {
                               settingPage(context);
                             }
@@ -248,9 +217,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Text(
-              player1.toString(), //'$player1',
+              '$player1',
               style: const TextStyle(fontSize: 43),
-
             ),
             Expanded(
               flex: 4,
@@ -268,15 +236,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
                     ),
                     child: TextButton(
-                      onPressed:
-                          status == false //if status false go state else null
-                              ? () {
-                                  setState(() {
-                                    player1++;
-                                    point1 = player1;
-                                  });
-                                }
-                              : null,
+                      onPressed: buttonStatus ==
+                              false //if buttonStatus false go state else null
+                          ? () {
+                              setState(() {
+                                player1++;
+                                point1 = player1;
+                              });
+                            }
+                          : null,
                       child: Text(one),
                       style: TextButton.styleFrom(),
                     ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class StateWidget extends StatefulWidget {
   final Widget child;
-
   const StateWidget({Key? key, required this.child}) : super(key: key);
 
   @override
@@ -12,8 +11,10 @@ class StateWidget extends StatefulWidget {
 class _StateWidgetState extends State<StateWidget> {
   int counter = 15;
   int defaultCounter = 15;
-
-  List<Color> neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+  List<Color> neonButton = <Color>[
+    const Color(0xFFF6F0FF),
+    const Color(0xFFED4A3C)
+  ];
   Color neonBorder = const Color(0xFF1C0C4E);
   List<Color> neonGradient = <Color>[
     const Color(0xFFCCFF8C),
@@ -21,8 +22,7 @@ class _StateWidgetState extends State<StateWidget> {
     const Color(0xFFFFA351)
   ];
 
-
-  themeA(){
+  themeA() {
     setState(() {
       neonButton = <Color>[const Color(0xFF7100FD), const Color(0xFFA88181)];
       neonBorder = const Color(0xFFDCAB45);
@@ -34,7 +34,7 @@ class _StateWidgetState extends State<StateWidget> {
     });
   }
 
-  themeB(){
+  themeB() {
     setState(() {
       neonButton = <Color>[const Color(0xFF9B63F6), const Color(0xFF4405AA)];
       neonBorder = const Color(0xFF676286);
@@ -46,7 +46,7 @@ class _StateWidgetState extends State<StateWidget> {
     });
   }
 
-  themeC(){
+  themeC() {
     setState(() {
       neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
       neonBorder = const Color(0xFF1C0C4E);
@@ -58,29 +58,28 @@ class _StateWidgetState extends State<StateWidget> {
     });
   }
 
-
-  type1() {
+  time15() {
     setState(() {
       counter = 15;
       defaultCounter = 15;
     });
   }
 
-  type2() {
+  time30() {
     setState(() {
       counter = 30;
       defaultCounter = 30;
     });
   }
 
-  type3() {
+  time45() {
     setState(() {
       counter = 45;
       defaultCounter = 45;
     });
   }
 
-  type4() {
+  time60() {
     setState(() {
       counter = 60;
       defaultCounter = 60;
@@ -135,50 +134,3 @@ class Updating extends InheritedWidget {
     return oldWidget.counter != counter || oldWidget.neonBorder != neonBorder;
   }
 }
-
-
-// String font = 'Press Start 2P';
-// List<Color> neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
-// Color neonBorder = const Color(0xFF1C0C4E);
-// List<Color> neonGradient = <Color>[
-//   const Color(0xFFCCFF8C),
-//   const Color(0xFF81DE76),
-//   const Color(0xFFFFA351)
-// ];
-//
-// themeA(){
-//   setState(() {
-//     font = 'Press Start 2P';
-//     neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
-//     neonBorder = const Color(0xFF1C0C4E);
-//     neonGradient = <Color>[
-//       const Color(0xFFCCFF8C),
-//       const Color(0xFF81DE76),
-//       const Color(0xFFFFA351)
-//     ];
-//   });
-// }
-// themeB(){
-//   setState(() {
-//     font = 'Odibee Sans';
-//     neonButton = <Color>[const Color(0xFF9994A3), const Color(0xFF0DFF4C)];
-//     neonBorder = const Color(0xFFAE9CEF);
-//     neonGradient = <Color>[
-//       const Color(0xFFE35A5A),
-//       const Color(0xFFEC3636),
-//       const Color(0xFF582B01)
-//     ];
-//   });
-// }
-// themeC(){
-//   setState(() {
-//     font = 'Pacifico';
-//     neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
-//     neonBorder = const Color(0xFF1C0C4E);
-//     neonGradient = <Color>[
-//       const Color(0xFFCCFF8C),
-//       const Color(0xFF81DE76),
-//       const Color(0xFFFFA351)
-//     ];
-//   });
-// }

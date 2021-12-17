@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'inherited.dart';
-
 import 'package:toggle_switch/toggle_switch.dart';
+
+import 'inherited.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -48,11 +48,11 @@ class _SettingsState extends State<Settings> {
                         totalSwitches: 3,
                         labels: const ['A', 'B', 'C'], //index 0,1,2
                         onToggle: (index) {
-                          if (index == 0){
+                          if (index == 0) {
                             Updating.of(context).themeA();
-                          }else if (index == 1){
+                          } else if (index == 1) {
                             Updating.of(context).themeB();
-                          } else if (index ==2){
+                          } else if (index == 2) {
                             Updating.of(context).themeC();
                           }
                         },
@@ -67,19 +67,20 @@ class _SettingsState extends State<Settings> {
                         'Time: ',
                         style: TextStyle(fontSize: 20),
                       ),
-                      ToggleSwitch(initialLabelIndex: 0,
+                      ToggleSwitch(
+                          initialLabelIndex: 0,
                           totalSwitches: 4,
                           labels: const ['15', '30', '45', '60'], //index 0,1,2
                           onToggle: (index) {
-                              if (index == 0){
-                                Updating.of(context).type1();
-                              }else if (index == 1){
-                                Updating.of(context).type2();
-                              } else if (index ==2){
-                                Updating.of(context).type3();
-                              } else if (index == 3){
-                                Updating.of(context).type4();
-                              }
+                            if (index == 0) {
+                              Updating.of(context).time15();
+                            } else if (index == 1) {
+                              Updating.of(context).time30();
+                            } else if (index == 2) {
+                              Updating.of(context).time45();
+                            } else if (index == 3) {
+                              Updating.of(context).time60();
+                            }
                           }),
                       // SizedBox(
                       //   width: 60,
@@ -91,13 +92,13 @@ class _SettingsState extends State<Settings> {
                       //         defaultTime = newValue.toString();
                       //       });
                       //       if (newValue == '15') {
-                      //         Updating.of(context).type1();
+                      //         Updating.of(context).time15();
                       //       } else if (newValue == '30') {
-                      //         Updating.of(context).type2();
+                      //         Updating.of(context).time30();
                       //       } else if (newValue == '45') {
-                      //         Updating.of(context).type3();
+                      //         Updating.of(context).time45();
                       //       } else if (newValue == '60') {
-                      //         Updating.of(context).type4();
+                      //         Updating.of(context).time60();
                       //       }
                       //     },
                       //     items: timeSelection.map((valueItem) {

@@ -11,6 +11,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  int switch1 = 0;
+  int switch2 = 0;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -44,10 +46,14 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(
-                        initialLabelIndex: 0,
+                        animate: true,
+                        initialLabelIndex: switch1,
                         totalSwitches: 3,
                         labels: const ['A', 'B', 'C'], //index 0,1,2
                         onToggle: (index) {
+                          setState(() {
+                            switch1 = index;
+                          });
                           if (index == 0) {
                             Updating.of(context).themeA();
                           } else if (index == 1) {
@@ -68,10 +74,14 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(
-                          initialLabelIndex: 0,
+                          animate: true,
+                          initialLabelIndex: switch2,
                           totalSwitches: 4,
                           labels: const ['15', '30', '45', '60'], //index 0,1,2
                           onToggle: (index) {
+                            setState(() {
+                              switch2 = index;
+                            });
                             if (index == 0) {
                               Updating.of(context).time15();
                             } else if (index == 1) {

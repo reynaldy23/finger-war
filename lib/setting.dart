@@ -24,11 +24,11 @@ class _SettingsState extends State<Settings> {
         height: 250,
         child: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.only(top: 10, bottom: 2),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 2),
               child: Text(
-                'SETTINGS',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                'setting_settings'.tr,
+                style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
             const Divider(
@@ -43,9 +43,9 @@ class _SettingsState extends State<Settings> {
                   Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      const Text(
-                        'Theme:     ',
-                        style: TextStyle(fontSize: 20),
+                      Text(
+                        'setting_theme'.tr,
+                        style: const TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(
                         initialLabelIndex: switch1,
@@ -134,7 +134,7 @@ class _SettingsState extends State<Settings> {
                   Row(
                     children: const <Widget>[
                       Text(
-                        'Language:',
+                        'setting_language',
                         style: TextStyle(fontSize: 20),
                       ),
                     ],

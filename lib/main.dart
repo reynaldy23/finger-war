@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart'; //much better font usage compared to manually import in pubspec
+
 import 'package:finger_war/popup.dart';
 import 'package:finger_war/setting.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:get/get.dart';
+import 'package:finger_war/inherited.dart';
+import 'package:finger_war/Languages.dart';
 
 import 'dart:async';
 import 'dart:math';
 
-import 'inherited.dart';
-import 'package:finger_war/Languages.dart';
 
 bool themeMode = false;
-int player1 = 0;
+int player1 = 0; //score
 int player2 = 0;
-int point1 = 0;
+int point1 = 0; //backup score
 int point2 = 0;
-int total = 0;
-String one = 'player1'.tr;
-String two = 'player2'.tr;
+int total = 0; //total score at pop up
+String one = 'main_player1'.tr;
+String two = 'main_player2'.tr;
 String result = '';
 
 List<String> timeSelection = <String>[
@@ -26,7 +27,7 @@ List<String> timeSelection = <String>[
   '45',
   '60',
 ];
-String defaultTime = '15';
+String defaultTime = '15'; // default time when opening the app
 
 void main() {
   runApp(const MyApp());
@@ -39,9 +40,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateWidget(
       child: GetMaterialApp(
-        translations: Languages(), // your translations
-        locale: Get.deviceLocale,
-        fallbackLocale: const Locale('en', 'US'),
+        translations: Languages(), //languages page
+        locale: Get.deviceLocale, //default device's language
+        fallbackLocale: const Locale('en', 'US'), //backup if default language is not detected / compatible
         theme:
             ThemeData(fontFamily: GoogleFonts.getFont('Pacifico').fontFamily),
         home: const MyHomePage(),
@@ -82,8 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
         point2 = 0;
         player1 = 0;
         player2 = 0;
-        one = 'Player 1';
-        two = 'Player 2';
+        one = 'main_player1'.tr;
+        two = 'main_player2'.tr;
         popUp(context);
       }
     }
@@ -185,12 +186,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                   setState(() {
                                     isStop = false;
                                     buttonStatus = false;
-                                    one = 'KEEP PRESSING';
+                                    one = 'main_keepPressing'.tr;
                                     two = one;
                                   });
                                 }
                               : null,
-                          child: const Text('START'),
+                          child: Text('main_start'.tr),
                         ),
                       ],
                     ),
@@ -274,13 +275,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 void winner() {
   if (point1 == point2) {
-    result = 'tie';
+    result = 'main_draw'.tr;
     total = point1;
   } else if (point1 > point2) {
-    result = 'won by player 1';
+    result = 'main_player1win'.tr;
     total = point1;
   } else {
-    result = 'won by player 2';
+    result = 'main_player2win'.tr;
     total = point2;
   }
 }

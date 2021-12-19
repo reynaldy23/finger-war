@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:finger_war/popup.dart';
 import 'package:finger_war/setting.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
 import 'dart:async';
 import 'dart:math';
 
 import 'inherited.dart';
+import 'package:finger_war/Languages.dart';
 
 bool themeMode = false;
 int player1 = 0;
@@ -14,8 +16,8 @@ int player2 = 0;
 int point1 = 0;
 int point2 = 0;
 int total = 0;
-String one = 'Player 1';
-String two = 'Player 2';
+String one = 'player1'.tr;
+String two = 'player2'.tr;
 String result = '';
 
 List<String> timeSelection = <String>[
@@ -36,7 +38,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateWidget(
-      child: MaterialApp(
+      child: GetMaterialApp(
+        translations: Languages(), // your translations
+        locale: Get.deviceLocale,
+        fallbackLocale: const Locale('en', 'US'),
         theme:
             ThemeData(fontFamily: GoogleFonts.getFont('Pacifico').fontFamily),
         home: const MyHomePage(),

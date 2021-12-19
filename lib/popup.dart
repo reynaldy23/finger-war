@@ -1,6 +1,7 @@
 //update tap n taps
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'dart:io' show Platform;
 import 'main.dart';
@@ -13,8 +14,8 @@ class WinnerAlert extends StatelessWidget {
     if (Platform.isIOS) {
       //for IOS devices only, because if used on Android will cause bug where ok button can't be used
       return CupertinoAlertDialog(
-        title: const Text(
-          'CONGRATULATIONS!',
+        title: Text(
+          'congratulation'.tr,
           textAlign: TextAlign.center,
         ),
         content: Text('The match is $result by $total taps.'),
@@ -25,15 +26,15 @@ class WinnerAlert extends StatelessWidget {
                 Navigator.pop(context);
                 total = 0;
               },
-              child: const Text('OK'),
+              child: Text('ok'.tr),
             ),
           )
         ],
       );
     } else {
       return AlertDialog(
-        title: const Text(
-          'CONGRATULATIONS!',
+        title: Text(
+          'congratulation'.tr,
           textAlign: TextAlign.center,
         ),
         content: Text('The match is $result with $total taps.',
@@ -46,7 +47,7 @@ class WinnerAlert extends StatelessWidget {
                 Navigator.pop(context);
                 total = 0;
               },
-              child: const Text('OK'),
+              child: Text('ok'.tr),
             ),
           )
         ],

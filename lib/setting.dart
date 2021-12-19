@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'inherited.dart';
@@ -47,7 +48,6 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(
-                        animate: true,
                         initialLabelIndex: switch1,
                         totalSwitches: 3,
                         labels: const ['A', 'B', 'C'], //index 0,1,2
@@ -75,7 +75,6 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(
-                          animate: true,
                           initialLabelIndex: switch2,
                           totalSwitches: 4,
                           labels: const ['15', '30', '45', '60'], //index 0,1,2

@@ -13,9 +13,10 @@ class Languages extends Translations {
       'main_draw': 'draw', //draw or tie
       'popup_congratulation': 'CONGRATULATION!',
       'popup_ok': 'OK',
-      'setting_language': 'Languages:',
+      'setting_language': 'Languages:', //10
       'setting_settings': 'SETTINGS',
       'setting_theme': 'Theme:',
+      'time': 'Time: ', //used in two main & setting
     },
     'ms_MY': {
       'main_keepPressing': 'TERUS TEKAN',
@@ -27,9 +28,10 @@ class Languages extends Translations {
       'main_draw': 'keputusan seri',
       'popup_congratulation': 'TAHNIAH!',
       'popup_ok': 'OK',
-      'setting_language': 'Bahasa:',
+      'setting_language': 'Bahasa:', //10
       'setting_settings': 'TETAPAN',
       'setting_theme': 'Tema:',
+      'time': 'Time: ',
     },
     'id_ID': {
       'main_keepPressing': 'TERUS MENEKAN',
@@ -41,9 +43,10 @@ class Languages extends Translations {
       'main_draw': 'seri',
       'popup_congratulation': 'SELAMAT!',
       'popup_ok': 'OK',
-      'setting_language': 'Bahasa:',
+      'setting_language': 'Bahasa:', //10
       'setting_settings': 'PENGATURAN',
       'setting_theme': 'Tema:',
+      'time': 'Time: ',
     },
     'ja_JP': {
       'main_keepPressing': '押し続ける',
@@ -55,9 +58,10 @@ class Languages extends Translations {
       'main_draw': '同点',
       'popup_congratulation': 'おめでとうございます!',
       'popup_ok': 'OK',
-      'setting_language': '言語:',
+      'setting_language': '言語:', //10
       'setting_settings': '設定',
-      'setting_theme': 'テーマ:',
+      'setting_theme': 'テーマ: ',
+      'time': '時間: '
     },
     'zh_CN': {
       'main_keepPressing': '继续按',
@@ -69,9 +73,10 @@ class Languages extends Translations {
       'main_draw': '平局',
       'popup_congratulation': '祝贺!',
       'popup_ok': 'OK',
-      'setting_language': '语言:',
+      'setting_language': '语言:', //10
       'setting_settings': '设置',
-      'setting_theme': '主题:',
+      'setting_theme': '主题: ',
+      'time': 'Time: ',
     },
     'hi_IN': {
       'main_keepPressing': 'दबाते रहो',
@@ -83,9 +88,10 @@ class Languages extends Translations {
       'main_draw': 'टाई',
       'popup_congratulation': 'बधाई!',
       'popup_ok': 'OK',
-      'setting_language': 'बोली:',
+      'setting_language': 'बोली: ', //10
       'setting_settings': 'समायोजन',
-      'setting_theme': 'विषय:',
+      'setting_theme': 'विषय: ',
+      'time': 'Time: ',
     },
     'ko_KR': {
       'main_keepPressing': '계속 눌러',
@@ -97,9 +103,10 @@ class Languages extends Translations {
       'main_draw': '동점',
       'popup_congratulation': '축하!',
       'popup_ok': 'OK',
-      'setting_language': '언어:',
+      'setting_language': '언어: ', //10
       'setting_settings': '설정',
-      'setting_theme': '주제:',
+      'setting_theme': '주제: ',
+      'time': 'Time: ',
     },
     'ru_RU': {
       'main_keepPressing': 'ПРОДОЛЖАЙТЕ НАЖАТЬ',
@@ -111,9 +118,10 @@ class Languages extends Translations {
       'main_draw': 'игра вничью',
       'popup_congratulation': 'ПОЗДРАВЛЯЕМ!',
       'popup_ok': 'OK',
-      'setting_language': 'Языки:',
+      'setting_language': 'Языки:', //10
       'setting_settings': 'НАСТРОЙКИ',
-      'setting_theme': 'Тема:',
+      'setting_theme': 'Тема: ',
+      'time': 'Time: ',
     },
     'pt_PT': {
       'main_keepPressing': 'CONTINUE PRESSIONANDO',
@@ -125,9 +133,10 @@ class Languages extends Translations {
       'main_draw': 'empate',
       'popup_congratulation': 'PARABÉNS!',
       'popup_ok': 'OK',
-      'setting_language': 'línguas:',
+      'setting_language': 'línguas:', //10
       'setting_settings': 'DEFINIÇÕES',
-      'setting_theme': 'Tema:',
+      'setting_theme': 'Tema: ',
+      'time': 'Time: ',
     }
   };
 }

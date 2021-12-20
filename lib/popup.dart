@@ -18,7 +18,27 @@ class WinnerAlert extends StatelessWidget {
           'popup_congratulation'.tr,
           textAlign: TextAlign.center,
         ),
-        content: Text('The match is $result by $total taps.'),
+        content: RichText(
+            text: TextSpan(children: [
+          TextSpan(text: 'The maetch is '.tr),
+          TextSpan(text: '$result '),
+          TextSpan(text: 'by'.tr),
+          TextSpan(text: '$total '),
+          TextSpan(text: 'taps.'.tr)
+        ])),
+        // RichText(
+        //   overflow: TextOverflow.visible,
+        //   text: TextSpan(
+        //       style: TextStyle(
+        //           fontSize: 43,
+        //           color: Colors.black,
+        //           fontFamily:
+        //           GoogleFonts.getFont('Pacifico').fontFamily),
+        //       children: [
+        //         TextSpan(text: 'time'.tr),
+        //         TextSpan(text: '$counter')
+        //       ]),
+        // )
         actions: [
           Center(
             child: TextButton(
@@ -37,8 +57,16 @@ class WinnerAlert extends StatelessWidget {
           'popup_congratulation'.tr,
           textAlign: TextAlign.center,
         ),
-        content: Text('The match is $result with $total taps.',
-            textAlign: TextAlign.center),
+        content: RichText(
+          textAlign: TextAlign.center,
+            text: TextSpan(style: const TextStyle(color: Colors.black) ,
+                children: [
+              TextSpan(text: 'The match is '.tr),
+              TextSpan(text: '$result '),
+              TextSpan(text: 'by '.tr),
+              TextSpan(text: '$total '),
+              TextSpan(text: 'taps.'.tr)
+            ])),
         actions: [
           SizedBox(
             width: double.infinity,

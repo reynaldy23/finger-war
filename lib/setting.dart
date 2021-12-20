@@ -70,9 +70,9 @@ class _SettingsState extends State<Settings> {
                   Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      const Text(
-                        'Time: ',
-                        style: TextStyle(fontSize: 20),
+                      Text(
+                        'time'.tr,
+                        style: const TextStyle(fontSize: 20),
                       ),
                       ToggleSwitch(
                           initialLabelIndex: switch2,
@@ -132,10 +132,10 @@ class _SettingsState extends State<Settings> {
                   ),
                   Container(height: 15),
                   Row(
-                    children: const <Widget>[
+                    children: <Widget>[
                       Text(
-                        'setting_language',
-                        style: TextStyle(fontSize: 20),
+                        'setting_language'.tr,
+                        style: const TextStyle(fontSize: 20),
                       ),
                     ],
                   ),

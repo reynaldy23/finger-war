@@ -31,8 +31,7 @@ List<String> timeSelection = <String>[
 ];
 String defaultTime = '15'; // default time when opening the app
 
-main() async {
-  await GetStorage.init();
+main() {
   runApp(const MyApp());
 }
 
@@ -45,9 +44,9 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         translations: Languages(), //languages page
         locale: Get.deviceLocale, //default device's language
-        fallbackLocale: const Locale('en', 'US'), //backup if default language is not detected / compatible
-        theme:
-            ThemeData(fontFamily: GoogleFonts.getFont('Inter').fontFamily),
+        fallbackLocale: const Locale('en',
+            'US'), //backup if default language is not detected / compatible
+        theme: ThemeData(fontFamily: GoogleFonts.getFont('Inter').fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -58,12 +57,12 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   bool buttonStatus = true;
-
+  final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -234,8 +233,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(
                         fontSize: 43,
                         color: Colors.black,
-                        fontFamily:
-                        GoogleFonts.getFont('Inter').fontFamily),
+                        fontFamily: GoogleFonts.getFont('Inter').fontFamily),
                     children: [
                       TextSpan(text: 'time'.tr),
                       TextSpan(text: '$counter')

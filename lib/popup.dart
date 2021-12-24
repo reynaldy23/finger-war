@@ -58,15 +58,16 @@ class WinnerAlert extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         content: RichText(
-          textAlign: TextAlign.center,
-            text: TextSpan(style: const TextStyle(color: Colors.black) ,
+            textAlign: TextAlign.center,
+            text: TextSpan(
+                style: const TextStyle(color: Colors.black),
                 children: [
-              TextSpan(text: 'The match is '.tr),
-              TextSpan(text: '$result '),
-              TextSpan(text: 'by '.tr),
-              TextSpan(text: '$total '),
-              TextSpan(text: 'taps.'.tr)
-            ])),
+                  TextSpan(text: 'The match is '.tr),
+                  TextSpan(text: '$result '),
+                  TextSpan(text: 'by '.tr),
+                  TextSpan(text: '$total '),
+                  TextSpan(text: 'taps.'.tr)
+                ])),
         actions: [
           SizedBox(
             width: double.infinity,

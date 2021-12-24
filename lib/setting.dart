@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'main.dart';
 
 import 'inherited.dart';
@@ -11,27 +9,13 @@ class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
 
   @override
-  _SettingsState createState() => _SettingsState();
+  SettingsState createState() => SettingsState();
 }
 
-class _SettingsState extends State<Settings> {
-  // int _index = 0;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _loadCounter();
-  // }
-
-  // void _loadCounter() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     _index = (prefs.getInt('counter') ?? 0);
-  //   });
-  // }
-
+class SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    var box = MyHomePageState().box;
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 18),
       backgroundColor: Colors.lightBlueAccent,
@@ -43,7 +27,8 @@ class _SettingsState extends State<Settings> {
               padding: const EdgeInsets.only(top: 10, bottom: 2),
               child: Text(
                 'setting_settings'.tr,
-                style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
             const Divider(
@@ -69,7 +54,6 @@ class _SettingsState extends State<Settings> {
                         onToggle: (index) {
                           box.write('indexA', index);
                           int saverA = box.read('indexA');
-                          print(saverA);
                           setState(() {
                             switch1 = saverA;
                           });
@@ -99,7 +83,6 @@ class _SettingsState extends State<Settings> {
                           onToggle: (index) {
                             box.write('indexB', index);
                             int saverB = box.read('indexB');
-                            print(saverB);
                             setState(() {
                               switch2 = saverB;
                             });

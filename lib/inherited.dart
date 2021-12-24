@@ -24,12 +24,12 @@ class _StateWidgetState extends State<StateWidget> {
 
   themeA() {
     setState(() {
-      neonButton = <Color>[const Color(0xFF7100FD), const Color(0xFFA88181)];
-      neonBorder = const Color(0xFFDCAB45);
+      neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
+      neonBorder = const Color(0xFF1C0C4E);
       neonGradient = <Color>[
-        const Color(0xFFFF0000),
-        const Color(0xFFD93D3D),
-        const Color(0xFFA35555)
+        const Color(0xFFCCFF8C),
+        const Color(0xFF81DE76),
+        const Color(0xFFFFA351)
       ];
     });
   }
@@ -48,12 +48,12 @@ class _StateWidgetState extends State<StateWidget> {
 
   themeC() {
     setState(() {
-      neonButton = <Color>[const Color(0xFFF6F0FF), const Color(0xFFED4A3C)];
-      neonBorder = const Color(0xFF1C0C4E);
+      neonButton = <Color>[const Color(0xFF7100FD), const Color(0xFFA88181)];
+      neonBorder = const Color(0xFFDCAB45);
       neonGradient = <Color>[
-        const Color(0xFFCCFF8C),
-        const Color(0xFF81DE76),
-        const Color(0xFFFFA351)
+        const Color(0xFFFF0000),
+        const Color(0xFFD93D3D),
+        const Color(0xFFA35555)
       ];
     });
   }

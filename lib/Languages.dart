@@ -15,7 +15,7 @@ class Languages extends Translations {
       'popup_ok': 'OK',
       'setting_language': 'Languages:', //10
       'setting_settings': 'SETTINGS',
-      'setting_theme': 'Theme:',
+      'setting_theme': 'Theme: ',
       'time': 'Time: ', //used in two main & setting
     },
     'ms_MY': {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart'; //much better font usage compared to manually import in pubspec
 
 import 'package:finger_war/popup.dart';
@@ -13,6 +14,8 @@ import 'dart:math';
 bool themeMode = false;
 int player1 = 0; //score
 int player2 = 0;
+int switch1 = 0;
+int switch2 = 0;
 int point1 = 0; //backup score
 int point2 = 0;
 int total = 0; //total score at pop up
@@ -28,7 +31,8 @@ List<String> timeSelection = <String>[
 ];
 String defaultTime = '15'; // default time when opening the app
 
-void main() {
+main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -43,7 +47,7 @@ class MyApp extends StatelessWidget {
         locale: Get.deviceLocale, //default device's language
         fallbackLocale: const Locale('en', 'US'), //backup if default language is not detected / compatible
         theme:
-            ThemeData(fontFamily: GoogleFonts.getFont('Pacifico').fontFamily),
+            ThemeData(fontFamily: GoogleFonts.getFont('Inter').fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -59,6 +63,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool buttonStatus = true;
+
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 43,
                             color: Colors.black,
                             fontFamily:
-                                GoogleFonts.getFont('Pacifico').fontFamily),
+                                GoogleFonts.getFont('Inter').fontFamily),
                         children: [
                           TextSpan(text: 'time'.tr),
                           TextSpan(text: '$counter')
@@ -230,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 43,
                         color: Colors.black,
                         fontFamily:
-                        GoogleFonts.getFont('Pacifico').fontFamily),
+                        GoogleFonts.getFont('Inter').fontFamily),
                     children: [
                       TextSpan(text: 'time'.tr),
                       TextSpan(text: '$counter')

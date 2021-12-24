@@ -20,7 +20,7 @@ class WinnerAlert extends StatelessWidget {
         ),
         content: RichText(
             text: TextSpan(children: [
-          TextSpan(text: 'The maetch is '.tr),
+          TextSpan(text: 'The match is '.tr),
           TextSpan(text: '$result '),
           TextSpan(text: 'by'.tr),
           TextSpan(text: '$total '),

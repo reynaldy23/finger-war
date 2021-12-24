@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'main.dart';
 
 import 'inherited.dart';
 
@@ -13,8 +15,21 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  int switch1 = 0;
-  int switch2 = 0;
+  // int _index = 0;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _loadCounter();
+  // }
+
+  // void _loadCounter() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     _index = (prefs.getInt('counter') ?? 0);
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -52,8 +67,11 @@ class _SettingsState extends State<Settings> {
                         totalSwitches: 3,
                         labels: const ['A', 'B', 'C'], //index 0,1,2
                         onToggle: (index) {
+                          box.write('indexA', index);
+                          int saverA = box.read('indexA');
+                          print(saverA);
                           setState(() {
-                            switch1 = index;
+                            switch1 = saverA;
                           });
                           if (index == 0) {
                             Updating.of(context).themeA();
@@ -79,8 +97,11 @@ class _SettingsState extends State<Settings> {
                           totalSwitches: 4,
                           labels: const ['15', '30', '45', '60'], //index 0,1,2
                           onToggle: (index) {
+                            box.write('indexB', index);
+                            int saverB = box.read('indexB');
+                            print(saverB);
                             setState(() {
-                              switch2 = index;
+                              switch2 = saverB;
                             });
                             if (index == 0) {
                               Updating.of(context).time15();

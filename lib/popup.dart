@@ -26,19 +26,6 @@ class WinnerAlert extends StatelessWidget {
           TextSpan(text: '$total '),
           TextSpan(text: 'taps.'.tr)
         ])),
-        // RichText(
-        //   overflow: TextOverflow.visible,
-        //   text: TextSpan(
-        //       style: TextStyle(
-        //           fontSize: 43,
-        //           color: Colors.black,
-        //           fontFamily:
-        //           GoogleFonts.getFont('Pacifico').fontFamily),
-        //       children: [
-        //         TextSpan(text: 'time'.tr),
-        //         TextSpan(text: '$counter')
-        //       ]),
-        // )
         actions: [
           Center(
             child: TextButton(

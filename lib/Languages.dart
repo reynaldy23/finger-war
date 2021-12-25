@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 class Languages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
-        'en_US': {
+        'en_US': { //English
           'main_keepPressing': 'KEEP PRESSING',
           'main_player1': 'Player 1',
           'main_player2': 'Player 2',
@@ -13,12 +13,33 @@ class Languages extends Translations {
           'main_draw': 'draw', //draw or tie
           'popup_congratulation': 'CONGRATULATION!',
           'popup_ok': 'OK',
-          'setting_language': 'Languages:', //10
+          'setting_language': 'Languages: ', //10
           'setting_settings': 'SETTINGS',
           'setting_theme': 'Theme: ',
+          'setting_ocean': 'Ocean',
+          'setting_nature': 'Nature',
+          'setting_snow': 'Snow',
           'time': 'Time: ', //used in two main & setting
         },
-        'ms_MY': {
+        'id_ID': { //Indonesian
+          'main_keepPressing': 'TERUS MENEKAN',
+          'main_player1': 'Pemain 1',
+          'main_player2': 'Pemain 2',
+          'main_player1win': 'dimenangkan oleh pemain 1',
+          'main_player2win': 'dimenangkan oleh pemain 2',
+          'main_start': 'MULAI',
+          'main_draw': 'seri',
+          'popup_congratulation': 'SELAMAT!',
+          'popup_ok': 'OK',
+          'setting_language': 'Bahasa: ', //10
+          'setting_settings': 'PENGATURAN',
+          'setting_theme': 'Tema: ',
+          'setting_ocean': 'Samudra',
+          'setting_nature': 'Alam',
+          'setting_snow': 'Salju',
+          'time': 'Waktu: ',
+        },
+        'ms_MY': { //Malay
           'main_keepPressing': 'TERUS TEKAN',
           'main_player1': 'Pemain 1',
           'main_player2': 'Pemain 2',
@@ -28,27 +49,15 @@ class Languages extends Translations {
           'main_draw': 'keputusan seri',
           'popup_congratulation': 'TAHNIAH!',
           'popup_ok': 'OK',
-          'setting_language': 'Bahasa:', //10
+          'setting_language': 'Bahasa: ', //10
           'setting_settings': 'TETAPAN',
-          'setting_theme': 'Tema:',
-          'time': 'Time: ',
+          'setting_theme': 'Tema: ',
+          'setting_ocean': 'Lautan',
+          'setting_nature': 'Alam',
+          'setting_snow': 'Salji',
+          'time': 'Masa: ',
         },
-        'id_ID': {
-          'main_keepPressing': 'TERUS MENEKAN',
-          'main_player1': 'Pemain 1',
-          'main_player2': 'Pemain 2',
-          'main_player1win': 'dimenangkan oleh pemain 1',
-          'main_player2win': 'dimenangkan oleh pemain 2',
-          'main_start': 'MULAILAH',
-          'main_draw': 'seri',
-          'popup_congratulation': 'SELAMAT!',
-          'popup_ok': 'OK',
-          'setting_language': 'Bahasa:', //10
-          'setting_settings': 'PENGATURAN',
-          'setting_theme': 'Tema:',
-          'time': 'Time: ',
-        },
-        'ja_JP': {
+        'ja_JP': { //Japanese
           'main_keepPressing': '押し続ける',
           'main_player1': 'プレーヤー1',
           'main_player2': 'プレーヤー1',
@@ -58,12 +67,15 @@ class Languages extends Translations {
           'main_draw': '同点',
           'popup_congratulation': 'おめでとうございます!',
           'popup_ok': 'OK',
-          'setting_language': '言語:', //10
+          'setting_language': '言語: ', //10
           'setting_settings': '設定',
           'setting_theme': 'テーマ: ',
+          'setting_ocean': '海洋',
+          'setting_nature': '自然',
+          'setting_snow': '雪',
           'time': '時間: '
         },
-        'zh_CN': {
+        'zh_CN': { // Chinese (Simplified)
           'main_keepPressing': '继续按',
           'main_player1': '选手一',
           'main_player2': '选手二',
@@ -73,12 +85,15 @@ class Languages extends Translations {
           'main_draw': '平局',
           'popup_congratulation': '祝贺!',
           'popup_ok': 'OK',
-          'setting_language': '语言:', //10
+          'setting_language': '语言: ', //10
           'setting_settings': '设置',
           'setting_theme': '主题: ',
-          'time': 'Time: ',
+          'setting_ocean': '海洋',
+          'setting_nature': '自然',
+          'setting_snow': '雪',
+          'time': '时间: ',
         },
-        'hi_IN': {
+        'hi_IN': { //Hindi
           'main_keepPressing': 'दबाते रहो',
           'main_player1': 'खिलाड़ी 1',
           'main_player2': 'खिलाड़ी 2',
@@ -91,9 +106,12 @@ class Languages extends Translations {
           'setting_language': 'बोली: ', //10
           'setting_settings': 'समायोजन',
           'setting_theme': 'विषय: ',
-          'time': 'Time: ',
+          'setting_ocean': 'महासागर',
+          'setting_nature': 'प्रकृति',
+          'setting_snow': 'बर्फ',
+          'time': 'समय: ',
         },
-        'ko_KR': {
+        'ko_KR': { //Korean
           'main_keepPressing': '계속 눌러',
           'main_player1': '플레이어 1',
           'main_player2': '플레이어 2',
@@ -106,9 +124,12 @@ class Languages extends Translations {
           'setting_language': '언어: ', //10
           'setting_settings': '설정',
           'setting_theme': '주제: ',
-          'time': 'Time: ',
+          'setting_ocean': '대양',
+          'setting_nature': '자연',
+          'setting_snow': '눈',
+          'time': '시각: ',
         },
-        'ru_RU': {
+        'ru_RU': { //Russian
           'main_keepPressing': 'ПРОДОЛЖАЙТЕ НАЖАТЬ',
           'main_player1': 'первый игрок',
           'main_player2': 'второй игрок',
@@ -118,12 +139,15 @@ class Languages extends Translations {
           'main_draw': 'игра вничью',
           'popup_congratulation': 'ПОЗДРАВЛЯЕМ!',
           'popup_ok': 'OK',
-          'setting_language': 'Языки:', //10
+          'setting_language': 'Языки: ', //10
           'setting_settings': 'НАСТРОЙКИ',
           'setting_theme': 'Тема: ',
-          'time': 'Time: ',
+          'setting_ocean': 'Океан',
+          'setting_nature': 'Природа',
+          'setting_snow': 'Снег',
+          'time': 'Время: ',
         },
-        'pt_PT': {
+        'pt_PT': { //Portuguese
           'main_keepPressing': 'CONTINUE PRESSIONANDO',
           'main_player1': 'Jogador 1',
           'main_player2': 'Jogador 2',
@@ -133,10 +157,13 @@ class Languages extends Translations {
           'main_draw': 'empate',
           'popup_congratulation': 'PARABÉNS!',
           'popup_ok': 'OK',
-          'setting_language': 'línguas:', //10
+          'setting_language': 'línguas: ', //10
           'setting_settings': 'DEFINIÇÕES',
           'setting_theme': 'Tema: ',
-          'time': 'Time: ',
+          'setting_ocean': 'oceano',
+          'setting_nature': 'Natureza',
+          'setting_snow': 'Neve',
+          'time': 'Tempo: ',
         }
       };
 }

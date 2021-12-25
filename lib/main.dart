@@ -19,8 +19,6 @@ int switch2 = 0;
 int point1 = 0; //backup score
 int point2 = 0;
 int total = 0; //total score at pop up
-String one = 'main_player1'.tr;
-String two = 'main_player2'.tr;
 String result = '';
 
 List<String> timeSelection = <String>[
@@ -62,7 +60,6 @@ class MyHomePage extends StatefulWidget {
 
 class MyHomePageState extends State<MyHomePage> {
   bool buttonStatus = true;
-  final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -86,8 +83,6 @@ class MyHomePageState extends State<MyHomePage> {
         point2 = 0;
         player1 = 0;
         player2 = 0;
-        one = 'main_player1'.tr;
-        two = 'main_player2'.tr;
         popUp(context);
       }
     }
@@ -122,7 +117,8 @@ class MyHomePageState extends State<MyHomePage> {
                               });
                             }
                           : null,
-                      child: Transform.rotate(angle: pi, child: Text(two)),
+                      child: Transform.rotate(
+                          angle: pi, child: Text('main_player2'.tr)),
                       style: TextButton.styleFrom(),
                     ),
                   )),
@@ -197,8 +193,6 @@ class MyHomePageState extends State<MyHomePage> {
                                   setState(() {
                                     isStop = false;
                                     buttonStatus = false;
-                                    one = 'main_keepPressing'.tr;
-                                    two = one;
                                   });
                                 }
                               : null,
@@ -269,7 +263,7 @@ class MyHomePageState extends State<MyHomePage> {
                               });
                             }
                           : null,
-                      child: Text(one),
+                      child: Text('main_player1'.tr),
                       style: TextButton.styleFrom(),
                     ),
                   )),

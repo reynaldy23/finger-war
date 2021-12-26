@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart'; //much better font usage compared to manually import in pubspec
 
 import 'package:finger_war/popup.dart';
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
         locale: Get.deviceLocale, //default device's language
         fallbackLocale: const Locale('en',
             'US'), //backup if default language is not detected / compatible
-        theme: ThemeData(fontFamily: GoogleFonts.getFont('Inter').fontFamily),
+        theme: ThemeData(fontFamily: GoogleFonts.getFont('Montserrat').fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -64,9 +63,10 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final counter = Updating.of(context).counter;
-    final neonBorder = Updating.of(context).neonBorder;
-    final neonButton = Updating.of(context).neonButton;
-    final neonGradient = Updating.of(context).neonGradient;
+    final border = Updating.of(context).border;
+    final button = Updating.of(context).button;
+    final startButton = Updating.of(context).startButton;
+    final timeColor = Updating.of(context).timeColor;
 
     bool isStop = true;
     int countdown = counter;
@@ -88,7 +88,7 @@ class MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFDE7D9),
+      backgroundColor: const Color(0xFFF5DCD5),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -102,10 +102,10 @@ class MyHomePageState extends State<MyHomePage> {
                       gradient: RadialGradient(
                         center: const Alignment(0, 0),
                         radius: 0.28,
-                        colors: <Color>[neonButton[0], neonButton[1]],
+                        colors: <Color>[button[0], button[1]],
                         stops: const <double>[0.9, 1.0],
                       ),
-                      border: Border.all(width: 3, color: neonBorder),
+                      border: Border.all(width: 3, color: border),
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
                     ),
                     child: TextButton(
@@ -118,8 +118,7 @@ class MyHomePageState extends State<MyHomePage> {
                             }
                           : null,
                       child: Transform.rotate(
-                          angle: pi, child: Text('main_player2'.tr)),
-                      style: TextButton.styleFrom(),
+                          angle: pi, child: Text('main_player2'.tr, style: const TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold))),
                     ),
                   )),
             ),
@@ -127,7 +126,7 @@ class MyHomePageState extends State<MyHomePage> {
                 angle: pi,
                 child: Text(
                   '$player2', //alt -> player1.toString()
-                  style: const TextStyle(fontSize: 43),
+                  style:TextStyle(fontSize: 43, color: timeColor),
                 )),
             Expanded(
               flex: 1,
@@ -138,9 +137,9 @@ class MyHomePageState extends State<MyHomePage> {
                     text: TextSpan(
                         style: TextStyle(
                             fontSize: 43,
-                            color: Colors.black,
+                            color: timeColor,
                             fontFamily:
-                                GoogleFonts.getFont('Inter').fontFamily),
+                                GoogleFonts.getFont('Montserrat').fontFamily),
                         children: [
                           TextSpan(text: 'time'.tr),
                           TextSpan(text: '$counter')
@@ -164,13 +163,7 @@ class MyHomePageState extends State<MyHomePage> {
                         Positioned.fill(
                           child: Container(
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: <Color>[
-                                  neonGradient[0],
-                                  neonGradient[1],
-                                  neonGradient[2],
-                                ],
-                              ),
+                                color: startButton,
                             ),
                           ),
                         ),
@@ -226,8 +219,8 @@ class MyHomePageState extends State<MyHomePage> {
                 text: TextSpan(
                     style: TextStyle(
                         fontSize: 43,
-                        color: Colors.black,
-                        fontFamily: GoogleFonts.getFont('Inter').fontFamily),
+                        color: timeColor,
+                        fontFamily: GoogleFonts.getFont('Montserrat').fontFamily),
                     children: [
                       TextSpan(text: 'time'.tr),
                       TextSpan(text: '$counter')
@@ -236,7 +229,7 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$player1',
-              style: const TextStyle(fontSize: 43),
+              style: TextStyle(fontSize: 43, color: timeColor),
             ),
             Expanded(
               flex: 4,
@@ -247,10 +240,10 @@ class MyHomePageState extends State<MyHomePage> {
                       gradient: RadialGradient(
                         center: const Alignment(0, 0),
                         radius: 0.28,
-                        colors: <Color>[neonButton[0], neonButton[1]],
+                        colors: <Color>[button[0], button[1]],
                         stops: const <double>[0.9, 1.0],
                       ),
-                      border: Border.all(width: 3, color: neonBorder),
+                      border: Border.all(width: 3, color: border),
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
                     ),
                     child: TextButton(
@@ -263,8 +256,7 @@ class MyHomePageState extends State<MyHomePage> {
                               });
                             }
                           : null,
-                      child: Text('main_player1'.tr),
-                      style: TextButton.styleFrom(),
+                      child: Text('main_player1'.tr, style: const TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),),
                     ),
                   )),
             )

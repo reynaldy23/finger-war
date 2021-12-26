@@ -11,7 +11,7 @@ class StateWidget extends StatefulWidget {
 class _StateWidgetState extends State<StateWidget> {
   int counter = 15;
   int defaultCounter = 15;
-  
+
   List<Color> button = <Color>[
     const Color(0xFF609196),
     const Color(0xFF82B5CA)
@@ -19,31 +19,35 @@ class _StateWidgetState extends State<StateWidget> {
   Color border = const Color(0xFF609196);
   Color startButton = const Color(0xFF7DDEF0);
   Color timeColor = const Color(0xFF666462);
+  Color bgColor = const Color(0xFFC0C5D2);
 
-  themeA() {
+  themeOcean() {
     setState(() {
       button = <Color>[const Color(0xFF609196), const Color(0xFF82B5CA)];
       border = const Color(0xFF609196);
       startButton = const Color(0xFF7DDEF0);
       timeColor = const Color(0xFF666462);
+      bgColor = const Color(0xFFC0C5D2);
     });
   }
 
-  themeB() {
+  themeNature() {
     setState(() {
-      button = <Color>[const Color(0xFF9B63F6), const Color(0xFF4405AA)];
-      border = const Color(0xFF676286);
+      button = <Color>[const Color(0xFFA4BB35), const Color(0xFF294324)];
+      border = const Color(0xFF8C9639);
       startButton = const Color(0xFF7DDEF0);
-      timeColor = const Color(0xFF666462);
+      timeColor = const Color(0xFFF9FFD8);
+      bgColor = const Color(0xFF8C9639);
     });
   }
 
-  themeC() {
+  themeSnow() {
     setState(() {
-      button = <Color>[const Color(0xFF7100FD), const Color(0xFFA88181)];
-      border = const Color(0xFFDCAB45);
-      startButton = const Color(0xFF7DDEF0);
-      timeColor = const Color(0xFF666462);
+      button = <Color>[const Color(0xFFD4D7E3), const Color(0xFFE8EFFF)];
+      border = const Color(0xFFABAFBB);
+      startButton = const Color(0xFF8E9099);
+      timeColor = const Color(0xFFF9FFD8);
+      bgColor = const Color(0xFFC0C5D2);
     });
   }
 

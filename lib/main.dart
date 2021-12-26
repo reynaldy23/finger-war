@@ -43,7 +43,8 @@ class MyApp extends StatelessWidget {
         locale: Get.deviceLocale, //default device's language
         fallbackLocale: const Locale('en',
             'US'), //backup if default language is not detected / compatible
-        theme: ThemeData(fontFamily: GoogleFonts.getFont('Montserrat').fontFamily),
+        theme:
+            ThemeData(fontFamily: GoogleFonts.getFont('Montserrat').fontFamily),
         home: const MyHomePage(),
       ),
     );
@@ -67,6 +68,7 @@ class MyHomePageState extends State<MyHomePage> {
     final button = Updating.of(context).button;
     final startButton = Updating.of(context).startButton;
     final timeColor = Updating.of(context).timeColor;
+    final bgColor = Updating.of(context).bgColor;
 
     bool isStop = true;
     int countdown = counter;
@@ -88,10 +90,9 @@ class MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5DCD5),
+      backgroundColor: bgColor,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
               flex: 4,
@@ -100,10 +101,9 @@ class MyHomePageState extends State<MyHomePage> {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: RadialGradient(
-                        center: const Alignment(0, 0),
                         radius: 0.28,
                         colors: <Color>[button[0], button[1]],
-                        stops: const <double>[0.9, 1.0],
+                        stops: const <double>[1.0, 1.0],
                       ),
                       border: Border.all(width: 3, color: border),
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -118,16 +118,21 @@ class MyHomePageState extends State<MyHomePage> {
                             }
                           : null,
                       child: Transform.rotate(
-                          angle: pi, child: Text('main_player2'.tr, style: const TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold))),
+                          angle: pi,
+                          child: Text('main_player2'.tr,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.bold))),
                     ),
                   )),
-            ),
+            ), //player 2 button
             Transform.rotate(
                 angle: pi,
                 child: Text(
                   '$player2', //alt -> player1.toString()
-                  style:TextStyle(fontSize: 43, color: timeColor),
-                )),
+                  style: TextStyle(fontSize: 30, color: timeColor),
+                )), //player 2 score
             Expanded(
               flex: 1,
               child: Transform.rotate(
@@ -136,7 +141,7 @@ class MyHomePageState extends State<MyHomePage> {
                     overflow: TextOverflow.visible,
                     text: TextSpan(
                         style: TextStyle(
-                            fontSize: 43,
+                            fontSize: 33,
                             color: timeColor,
                             fontFamily:
                                 GoogleFonts.getFont('Montserrat').fontFamily),
@@ -145,17 +150,13 @@ class MyHomePageState extends State<MyHomePage> {
                           TextSpan(text: '$counter')
                         ]),
                   )),
-            ),
+            ), //player 2 time
             Expanded(
               flex: 1,
               child: Stack(
                 clipBehavior: Clip.none,
-                alignment: Alignment.center,
+                alignment: FractionalOffset.center,
                 children: <Widget>[
-                  const Divider(
-                    thickness: 5,
-                    color: Colors.black,
-                  ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
                     child: Stack(
@@ -163,13 +164,13 @@ class MyHomePageState extends State<MyHomePage> {
                         Positioned.fill(
                           child: Container(
                             decoration: BoxDecoration(
-                                color: startButton,
+                              color: startButton,
                             ),
                           ),
                         ),
                         TextButton(
                           style: TextButton.styleFrom(
-                            padding: const EdgeInsets.only(left: 60, right: 60),
+                            padding: const EdgeInsets.only(left: 43, right: 43),
                             primary: Colors.white,
                             textStyle: const TextStyle(fontSize: 20),
                           ),
@@ -189,14 +190,17 @@ class MyHomePageState extends State<MyHomePage> {
                                   });
                                 }
                               : null,
-                          child: Text('main_start'.tr),
+                          child: Text(
+                            'main_start'.tr,
+                            style: const TextStyle(
+                                fontSize: 33, fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  Positioned(
-                    right: 25,
-                    top: 35,
+                  Align(
+                    alignment: Alignment.centerRight,
                     child: IconButton(
                       onPressed: buttonStatus
                           ? () {
@@ -205,7 +209,7 @@ class MyHomePageState extends State<MyHomePage> {
                           : null,
                       icon: const Icon(
                         Icons.settings,
-                        size: 43,
+                        size: 33,
                       ),
                     ),
                   ),
@@ -218,9 +222,10 @@ class MyHomePageState extends State<MyHomePage> {
                 overflow: TextOverflow.visible,
                 text: TextSpan(
                     style: TextStyle(
-                        fontSize: 43,
-                        color: timeColor,
-                        fontFamily: GoogleFonts.getFont('Montserrat').fontFamily),
+                      fontSize: 33,
+                      color: timeColor,
+                      fontFamily: GoogleFonts.getFont('Montserrat').fontFamily,
+                    ),
                     children: [
                       TextSpan(text: 'time'.tr),
                       TextSpan(text: '$counter')
@@ -229,7 +234,7 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$player1',
-              style: TextStyle(fontSize: 43, color: timeColor),
+              style: TextStyle(fontSize: 30, color: timeColor),
             ),
             Expanded(
               flex: 4,
@@ -241,7 +246,7 @@ class MyHomePageState extends State<MyHomePage> {
                         center: const Alignment(0, 0),
                         radius: 0.28,
                         colors: <Color>[button[0], button[1]],
-                        stops: const <double>[0.9, 1.0],
+                        stops: const <double>[1.0, 1.0],
                       ),
                       border: Border.all(width: 3, color: border),
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -256,7 +261,13 @@ class MyHomePageState extends State<MyHomePage> {
                               });
                             }
                           : null,
-                      child: Text('main_player1'.tr, style: const TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),),
+                      child: Text(
+                        'main_player1'.tr,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   )),
             )

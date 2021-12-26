@@ -74,11 +74,11 @@ class SettingsState extends State<Settings> {
                             switch1 = index;
                           });
                           if (index == 0) {
-                            Updating.of(context).themeA();
+                            Updating.of(context).themeOcean();
                           } else if (index == 1) {
-                            Updating.of(context).themeB();
+                            Updating.of(context).themeNature();
                           } else if (index == 2) {
-                            Updating.of(context).themeC();
+                            Updating.of(context).themeSnow();
                           }
                         },
                       )

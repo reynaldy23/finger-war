@@ -20,6 +20,7 @@ class _StateWidgetState extends State<StateWidget> {
   Color startButton = const Color(0xFF7DDEF0);
   Color timeColor = const Color(0xFF666462);
   Color bgColor = const Color(0xFFC0C5D2);
+  Color settingBgColor = Colors.lightBlueAccent;
 
   themeOcean() {
     setState(() {

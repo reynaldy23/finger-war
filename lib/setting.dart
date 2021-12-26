@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:get/get.dart';
 import 'main.dart';
@@ -30,27 +29,24 @@ class Settings extends StatefulWidget {
 class SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    final settingBgColor = Updating.of(context).settingBgColor;
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: settingBgColor,
       child: SizedBox(
         height: 250,
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 2),
+              padding: const EdgeInsets.only(top: 10, bottom: 15),
               child: Text(
                 'setting_settings'.tr,
                 style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
                 ),
               ),
             ),
-            const Divider(
-              thickness: 2,
-              color: Colors.black,
-            ),
+
             Container(height: 5),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
@@ -69,7 +65,7 @@ class SettingsState extends State<Settings> {
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: ToggleSwitch(
-                            minWidth: 83,
+                            minWidth: 87,
                             initialLabelIndex: switch1,
                             totalSwitches: 3,
                             labels: [
@@ -145,9 +141,9 @@ class SettingsState extends State<Settings> {
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(3),
                                 border: Border.all()),
                             child: DropdownButton(
                               dropdownColor: Colors.blue,

@@ -46,7 +46,6 @@ class SettingsState extends State<Settings> {
                 ),
               ),
             ),
-
             Container(height: 5),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
@@ -107,7 +106,12 @@ class SettingsState extends State<Settings> {
                             minWidth: 65,
                             initialLabelIndex: switch2,
                             totalSwitches: 4,
-                            labels: const ['15', '30', '45', '60'], //index 0,1,2
+                            labels: const [
+                              '15',
+                              '30',
+                              '45',
+                              '60'
+                            ], //index 0,1,2
                             onToggle: (index) {
                               setState(() {
                                 switch2 = index;

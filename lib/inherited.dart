@@ -29,6 +29,7 @@ class _StateWidgetState extends State<StateWidget> {
       startButton = const Color(0xFF7DDEF0);
       timeColor = const Color(0xFF666462);
       bgColor = const Color(0xFFC0C5D2);
+      settingBgColor = const Color(0xFF9DB8FD);
     });
   }
 
@@ -36,9 +37,10 @@ class _StateWidgetState extends State<StateWidget> {
     setState(() {
       button = <Color>[const Color(0xFFA4BB35), const Color(0xFF294324)];
       border = const Color(0xFF8C9639);
-      startButton = const Color(0xFF7DDEF0);
+      startButton = const Color(0xFF9F8D03);
       timeColor = const Color(0xFFF9FFD8);
-      bgColor = const Color(0xFF8C9639);
+      bgColor = const Color(0xFF363B1E);
+      settingBgColor = const Color(0xFF90C247);
     });
   }
 
@@ -47,8 +49,9 @@ class _StateWidgetState extends State<StateWidget> {
       button = <Color>[const Color(0xFFD4D7E3), const Color(0xFFE8EFFF)];
       border = const Color(0xFFABAFBB);
       startButton = const Color(0xFF8E9099);
-      timeColor = const Color(0xFFF9FFD8);
+      timeColor = const Color(0xFFE8EFFF);
       bgColor = const Color(0xFFC0C5D2);
+      settingBgColor = const Color(0xFFe6e9FF);
     });
   }
 

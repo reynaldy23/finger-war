@@ -57,7 +57,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'setting_theme'.tr,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 18),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
@@ -96,7 +96,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'time'.tr,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 18),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
@@ -138,7 +138,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'setting_language'.tr,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 18),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),

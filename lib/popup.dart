@@ -20,11 +20,11 @@ class WinnerAlert extends StatelessWidget {
         ),
         content: RichText(
             text: TextSpan(children: [
-          TextSpan(text: 'The match is '.tr),
+          TextSpan(text: 'popup_1'.tr),
           TextSpan(text: '$result '),
-          TextSpan(text: 'by'.tr),
+          TextSpan(text: 'popup_2'.tr),
           TextSpan(text: '$total '),
-          TextSpan(text: 'taps.'.tr)
+          TextSpan(text: 'popup_3'.tr)
         ])),
         actions: [
           Center(
@@ -49,11 +49,11 @@ class WinnerAlert extends StatelessWidget {
             text: TextSpan(
                 style: const TextStyle(color: Colors.black),
                 children: [
-                  TextSpan(text: 'The match is '.tr),
+                  TextSpan(text: 'popup_1'.tr),
                   TextSpan(text: '$result '),
-                  TextSpan(text: 'by '.tr),
+                  TextSpan(text: 'popup_2'.tr),
                   TextSpan(text: '$total '),
-                  TextSpan(text: 'taps.'.tr)
+                  TextSpan(text: 'popup_3'.tr)
                 ])),
         actions: [
           SizedBox(

@@ -11,9 +11,12 @@ class Languages extends Translations {
           'main_player2win': 'won by player 2',
           'main_start': 'START',
           'main_draw': 'draw', //draw or tie
+          'popup_1': 'The match is ',
+          'popup_2': 'by',
+          'popup_3': 'taps.', //10
           'popup_congratulation': 'CONGRATULATION!',
           'popup_ok': 'OK',
-          'setting_language': 'Languages: ', //10
+          'setting_language': 'Languages: ',
           'setting_settings': 'SETTINGS',
           'setting_theme': 'Theme: ',
           'setting_ocean': 'Ocean',
@@ -29,9 +32,12 @@ class Languages extends Translations {
           'main_player2win': 'dimenangkan oleh pemain 2',
           'main_start': 'MULAI',
           'main_draw': 'seri',
+          'popup_1': 'Pertandingan ini ',
+          'popup_2': 'oleh',
+          'popup_3': 'ketukan.', //10
           'popup_congratulation': 'SELAMAT!',
           'popup_ok': 'OK',
-          'setting_language': 'Bahasa: ', //10
+          'setting_language': 'Bahasa: ',
           'setting_settings': 'PENGATURAN',
           'setting_theme': 'Tema: ',
           'setting_ocean': 'Samudra',
@@ -47,9 +53,12 @@ class Languages extends Translations {
           'main_player2win': 'dimenangi oleh pemain 2',
           'main_start': 'MULAKAN',
           'main_draw': 'keputusan seri',
+          'popup_1': 'Perlawanan ini ',
+          'popup_2': 'oleh',
+          'popup_3': 'ketukan.', //10
           'popup_congratulation': 'TAHNIAH!',
           'popup_ok': 'OK',
-          'setting_language': 'Bahasa: ', //10
+          'setting_language': 'Bahasa: ',
           'setting_settings': 'TETAPAN',
           'setting_theme': 'Tema: ',
           'setting_ocean': 'Lautan',
@@ -65,9 +74,12 @@ class Languages extends Translations {
           'main_player2win': 'プレイヤー2が勝ちました',
           'main_start': '始める',
           'main_draw': '同点',
+          'popup_1': '試合',
+          'popup_2': '沿って',
+          'popup_3': 'タップ.', //10
           'popup_congratulation': 'おめでとうございます!',
           'popup_ok': 'OK',
-          'setting_language': '言語: ', //10
+          'setting_language': '言語: ',
           'setting_settings': '設定',
           'setting_theme': 'テーマ: ',
           'setting_ocean': '海洋',
@@ -83,9 +95,12 @@ class Languages extends Translations {
           'main_player2win': '玩家 2 获胜',
           'main_start': '开始',
           'main_draw': '平局',
+          'popup_1': '比赛',
+          'popup_2': '经过',
+          'popup_3': '水龙头.', //10
           'popup_congratulation': '祝贺!',
           'popup_ok': 'OK',
-          'setting_language': '语言: ', //10
+          'setting_language': '语言: ',
           'setting_settings': '设置',
           'setting_theme': '主题: ',
           'setting_ocean': '海洋',
@@ -101,9 +116,12 @@ class Languages extends Translations {
           'main_player2win': 'खिलाड़ी 2 . द्वारा जीता',
           'main_start': 'शुरु',
           'main_draw': 'टाई',
+          'popup_1': 'मैच',
+          'popup_2': 'द्वारा',
+          'popup_3': 'टीएपीएस.', //10
           'popup_congratulation': 'बधाई!',
           'popup_ok': 'OK',
-          'setting_language': 'बोली: ', //10
+          'setting_language': 'बोली: ',
           'setting_settings': 'समायोजन',
           'setting_theme': 'विषय: ',
           'setting_ocean': 'महासागर',
@@ -119,9 +137,12 @@ class Languages extends Translations {
           'main_player2win': '플레이어 2이 이겼습니다.',
           'main_start': '시작',
           'main_draw': '동점',
+          'popup_1': '경기 ',
+          'popup_2': '로',
+          'popup_3': '탭.', //10
           'popup_congratulation': '축하!',
           'popup_ok': 'OK',
-          'setting_language': '언어: ', //10
+          'setting_language': '언어: ',
           'setting_settings': '설정',
           'setting_theme': '주제: ',
           'setting_ocean': '대양',
@@ -137,9 +158,12 @@ class Languages extends Translations {
           'main_player2win': 'выиграл игрок 2',
           'main_start': 'НАЧАЛО',
           'main_draw': 'игра вничью',
+          'popup_1': 'Совпадение ',
+          'popup_2': 'от',
+          'popup_3': 'краны.', //10
           'popup_congratulation': 'ПОЗДРАВЛЯЕМ!',
           'popup_ok': 'OK',
-          'setting_language': 'Языки: ', //10
+          'setting_language': 'Языки: ',
           'setting_settings': 'НАСТРОЙКИ',
           'setting_theme': 'Тема: ',
           'setting_ocean': 'Океан',
@@ -155,12 +179,15 @@ class Languages extends Translations {
           'main_player2win': 'ganhou pelo jogador 2',
           'main_start': 'COMEÇAR',
           'main_draw': 'empate',
+          'popup_1': 'O jogo ',
+          'popup_2': 'por',
+          'popup_3': 'torneiros.', //10
           'popup_congratulation': 'PARABÉNS!',
           'popup_ok': 'OK',
-          'setting_language': 'línguas: ', //10
+          'setting_language': 'línguas: ',
           'setting_settings': 'DEFINIÇÕES',
           'setting_theme': 'Tema: ',
-          'setting_ocean': 'oceano',
+          'setting_ocean': 'Oceano',
           'setting_nature': 'Natureza',
           'setting_snow': 'Neve',
           'time': 'Tempo: ',

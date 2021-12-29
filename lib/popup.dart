@@ -1,10 +1,10 @@
-//update tap n taps
+import 'package:finger_war/main.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:io' show Platform;
 
-import 'main.dart';
+import 'dart:io' show Platform;
 
 class WinnerAlert extends StatelessWidget {
   const WinnerAlert({Key? key}) : super(key: key);

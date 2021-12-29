@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart'; //much better font usage compared to manually import in pubspec
-
 import 'package:finger_war/popup.dart';
 import 'package:finger_war/setting.dart';
 import 'package:finger_war/inherited.dart';
 import 'package:finger_war/Languages.dart';
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart'; //much better font usage compared to manually import in pubspec
 
 import 'dart:async';
 import 'dart:math';
@@ -27,6 +27,10 @@ List<String> timeSelection = <String>[
   '60',
 ];
 String defaultTime = '15'; // default time when opening the app
+
+double playerFont = 23;
+double scoreFont = 30;
+double timeFont = 33;
 
 main() {
   runApp(const MyApp());
@@ -120,18 +124,18 @@ class MyHomePageState extends State<MyHomePage> {
                       child: Transform.rotate(
                           angle: pi,
                           child: Text('main_player2'.tr,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 23,
+                                  fontSize: playerFont,
                                   fontWeight: FontWeight.bold))),
                     ),
                   )),
             ), //player 2 button
             Transform.rotate(
-                angle: pi,
+                angle: pi, //180'
                 child: Text(
                   '$player2', //alt -> player1.toString()
-                  style: TextStyle(fontSize: 30, color: timeColor),
+                  style: TextStyle(fontSize: scoreFont, color: timeColor),
                 )), //player 2 score
             Expanded(
               flex: 1,
@@ -141,7 +145,7 @@ class MyHomePageState extends State<MyHomePage> {
                     overflow: TextOverflow.visible,
                     text: TextSpan(
                         style: TextStyle(
-                            fontSize: 33,
+                            fontSize: timeFont,
                             color: timeColor,
                             fontFamily:
                                 GoogleFonts.getFont('Montserrat').fontFamily),
@@ -215,14 +219,14 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-            ),
+            ), //start button & setting
             Expanded(
               flex: 1,
               child: RichText(
                 overflow: TextOverflow.visible,
                 text: TextSpan(
                     style: TextStyle(
-                      fontSize: 33,
+                      fontSize: timeFont,
                       color: timeColor,
                       fontFamily: GoogleFonts.getFont('Montserrat').fontFamily,
                     ),
@@ -231,11 +235,11 @@ class MyHomePageState extends State<MyHomePage> {
                       TextSpan(text: '$counter')
                     ]),
               ),
-            ),
+            ), //player 1 time
             Text(
               '$player1',
-              style: TextStyle(fontSize: 30, color: timeColor),
-            ),
+              style: TextStyle(fontSize: scoreFont, color: timeColor),
+            ), //player 1 score
             Expanded(
               flex: 4,
               child: SizedBox(
@@ -263,14 +267,14 @@ class MyHomePageState extends State<MyHomePage> {
                           : null,
                       child: Text(
                         'main_player1'.tr,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 23,
+                            fontSize: playerFont,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
                   )),
-            )
+            ) //player 1 button
           ],
         ),
       ),

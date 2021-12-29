@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:toggle_switch/toggle_switch.dart';
-import 'package:get/get.dart';
-import 'main.dart';
+import 'package:finger_war/main.dart';
+import 'package:finger_war/inherited.dart';
 
-import 'inherited.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 List<String> languages = <String>[
   'English',
@@ -16,6 +16,8 @@ List<String> languages = <String>[
   'Русский язык',
   'Português'
 ];
+
+double settingFont = 18;
 
 String defaultLanguage = 'English';
 
@@ -57,7 +59,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'setting_theme'.tr,
-                        style: const TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: settingFont),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
@@ -96,7 +98,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'time'.tr,
-                        style: const TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: settingFont),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
@@ -138,7 +140,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'setting_language'.tr,
-                        style: const TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: settingFont),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
@@ -164,25 +166,35 @@ class SettingsState extends State<Settings> {
                                   value: valueItem,
                                   onTap: () {
                                     if (valueItem == 'English') {
-                                      Get.updateLocale(const Locale('en', 'US'));
+                                      Get.updateLocale(
+                                          const Locale('en', 'US'));
                                       //snackBar = SnackBar(content: Text('English'));
-                                    } else if (valueItem == 'Bahasa Indonesia') {
-                                      Get.updateLocale(const Locale('id', 'ID'));
+                                    } else if (valueItem ==
+                                        'Bahasa Indonesia') {
+                                      Get.updateLocale(
+                                          const Locale('id', 'ID'));
                                     } else if (valueItem == 'Bahasa Melayu') {
-                                      Get.updateLocale(const Locale('ms', 'MY'));
+                                      Get.updateLocale(
+                                          const Locale('ms', 'MY'));
                                     } else if (valueItem == '日本語') {
-                                      Get.updateLocale(const Locale('ja', 'JP'));
+                                      Get.updateLocale(
+                                          const Locale('ja', 'JP'));
                                     } else if (valueItem ==
                                         'Chinese (Simplified)') {
-                                      Get.updateLocale(const Locale('zh', 'CN'));
+                                      Get.updateLocale(
+                                          const Locale('zh', 'CN'));
                                     } else if (valueItem == 'हिन्दी') {
-                                      Get.updateLocale(const Locale('hi', 'IN'));
+                                      Get.updateLocale(
+                                          const Locale('hi', 'IN'));
                                     } else if (valueItem == '한국어') {
-                                      Get.updateLocale(const Locale('ko', 'KR'));
+                                      Get.updateLocale(
+                                          const Locale('ko', 'KR'));
                                     } else if (valueItem == 'Русский язык') {
-                                      Get.updateLocale(const Locale('ru', 'RU'));
+                                      Get.updateLocale(
+                                          const Locale('ru', 'RU'));
                                     } else if (valueItem == 'Português') {
-                                      Get.updateLocale(const Locale('pt', 'PT'));
+                                      Get.updateLocale(
+                                          const Locale('pt', 'PT'));
                                     }
                                   },
                                   child: Text(valueItem),

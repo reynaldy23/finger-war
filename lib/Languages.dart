@@ -12,7 +12,7 @@ class Languages extends Translations {
           'main_start': 'START',
           'main_draw': 'draw', //draw or tie
           'popup_1': 'The match is ',
-          'popup_2': 'by',
+          'popup_2': 'by ',
           'popup_3': 'taps.', //10
           'popup_congratulation': 'CONGRATULATION!',
           'popup_ok': 'OK',
@@ -33,7 +33,7 @@ class Languages extends Translations {
           'main_start': 'MULAI',
           'main_draw': 'seri',
           'popup_1': 'Pertandingan ini ',
-          'popup_2': 'oleh',
+          'popup_2': 'oleh ',
           'popup_3': 'ketukan.', //10
           'popup_congratulation': 'SELAMAT!',
           'popup_ok': 'OK',
@@ -54,7 +54,7 @@ class Languages extends Translations {
           'main_start': 'MULAKAN',
           'main_draw': 'keputusan seri',
           'popup_1': 'Perlawanan ini ',
-          'popup_2': 'oleh',
+          'popup_2': 'oleh ',
           'popup_3': 'ketukan.', //10
           'popup_congratulation': 'TAHNIAH!',
           'popup_ok': 'OK',
@@ -69,7 +69,7 @@ class Languages extends Translations {
         'ja_JP': { //Japanese
           'main_keepPressing': '押し続ける',
           'main_player1': 'プレーヤー1',
-          'main_player2': 'プレーヤー1',
+          'main_player2': 'プレーヤー2',
           'main_player1win': 'プレイヤー1が勝ちました',
           'main_player2win': 'プレイヤー2が勝ちました',
           'main_start': '始める',
@@ -159,7 +159,7 @@ class Languages extends Translations {
           'main_start': 'НАЧАЛО',
           'main_draw': 'игра вничью',
           'popup_1': 'Совпадение ',
-          'popup_2': 'от',
+          'popup_2': 'от ',
           'popup_3': 'краны.', //10
           'popup_congratulation': 'ПОЗДРАВЛЯЕМ!',
           'popup_ok': 'OK',

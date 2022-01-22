@@ -6,6 +6,7 @@ import 'package:finger_war/Languages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart'; //much better font usage compared to manually import in pubspec
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'dart:async';
 import 'dart:math';
@@ -33,6 +34,8 @@ double scoreFont = 30;
 double timeFont = 33;
 
 main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   runApp(const MyApp());
 }
 

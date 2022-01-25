@@ -33,7 +33,7 @@ class Languages extends Translations {
           'main_start': 'MULAI',
           'main_draw': 'seri',
           'popup_1': 'Pertandingan ini ',
-          'popup_2': 'oleh ',
+          'popup_2': 'dengan ',
           'popup_3': 'ketukan.', //10
           'popup_congratulation': 'SELAMAT!',
           'popup_ok': 'OK',

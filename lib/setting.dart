@@ -43,6 +43,7 @@ class SettingsState extends State<Settings> {
               padding: const EdgeInsets.only(top: 10, bottom: 15),
               child: Text(
                 'setting_settings'.tr,
+                textScaleFactor: 1,
                 style: const TextStyle(
                   fontSize: 28,
                 ),
@@ -59,6 +60,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'setting_theme'.tr,
+                        textScaleFactor: 1,
                         style: TextStyle(fontSize: settingFont),
                       ),
                       Padding(
@@ -98,6 +100,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'time'.tr,
+                        textScaleFactor: 1,
                         style: TextStyle(fontSize: settingFont),
                       ),
                       Padding(
@@ -140,6 +143,7 @@ class SettingsState extends State<Settings> {
                     children: <Widget>[
                       Text(
                         'setting_language'.tr,
+                        textScaleFactor: 1,
                         style: TextStyle(fontSize: settingFont),
                       ),
                       Padding(
@@ -197,7 +201,8 @@ class SettingsState extends State<Settings> {
                                           const Locale('pt', 'PT'));
                                     }
                                   },
-                                  child: Text(valueItem),
+                                  child: Text(valueItem,
+                                    textScaleFactor: 1),
                                 );
                               }).toList(),
                             ),

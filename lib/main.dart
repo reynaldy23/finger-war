@@ -53,6 +53,10 @@ class MyApp extends StatelessWidget {
         theme:
             ThemeData(fontFamily: GoogleFonts.getFont('Montserrat').fontFamily),
         home: const MyHomePage(),
+        builder: (context, child){
+          return MediaQuery(data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0), child: child!,
+          );
+        },
       ),
     );
   }

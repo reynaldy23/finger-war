@@ -1,4 +1,5 @@
 https://play.google.com/store/apps/details?id=com.vaurastech.tapduel
+
 (/^_^)/ TAP DUEL!
 
 Finger war or Tap Duel is a game application created with Flutter without any game library (Vanilla Flutter). The application does not requires any internet connection.
